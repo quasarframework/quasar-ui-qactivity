@@ -1,0 +1,29 @@
+{
+  "type": "component",
+  "props": {
+    "dense": {
+      "type": "Boolean",
+      "desc": "Dense mode; occupies less space"
+    },
+    "bar-color": {
+      "type": "String",
+      "desc": "CSS color (no Quasar colors allowed here)",
+      "examples": [ "blue", "#0000FF" ]
+    },
+    "bar-width": {
+      "type": "String",
+      "desc": "Size in CSS units, including unit name",
+      "examples": [ "2px" ]
+    },
+    "bar-distance": {
+      "type": "String",
+      "desc": "Size in CSS units, including unit name",
+      "examples": [ "16px", "1rem" ]
+    }
+  },
+  "slots": {
+    "default": {
+      "desc": "Anything can go into this slot, but a QActivityItem component is expected"
+    }
+  }
+}
