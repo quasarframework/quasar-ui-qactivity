@@ -13,10 +13,11 @@ const extendQuasarConf = function (api, conf) {
   const bootFile = '~@quasar/quasar-app-extension-qactivity/src/boot/qactivity.js'
   if (!boot.includes(bootFile)) {
     boot.push(bootFile)
-    // make sure boot file transpiles
-    conf.build.transpileDependencies.push(/quasar-app-extension-qactivity[\\/]src/)
     console.log(` App Extension (qactivity) Info: 'Adding qactivity boot reference to your quasar.conf.js'`)
   }
+
+  // make sure boot file transpiles
+  conf.build.transpileDependencies.push(/quasar-app-extension-qactivity[\\/]src/)
 
   // for brevity
   let css = conf.css
