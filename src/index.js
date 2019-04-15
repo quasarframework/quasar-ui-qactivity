@@ -6,11 +6,6 @@
  */
 
 const extendWithActivity = function (api, conf) {
-  // make sure there is a boot array
-  if (!conf.boot) {
-    conf.boot = []
-  }
-
   // for brevity
   let boot = conf.boot
 
@@ -20,11 +15,6 @@ const extendWithActivity = function (api, conf) {
     // make sure boot file transpiles
     conf.build.transpileDependencies.push(/quasar-app-extension-qactivity[\\/]src[\\/]boot/)
     console.log(` App Extension (qactivity) Info: 'Adding qactivity boot reference to your quasar.conf.js'`)
-  }
-
-  // make sure there is a css array
-  if (!conf.css) {
-    conf.css = []
   }
 
   // for brevity
@@ -37,7 +27,7 @@ const extendWithActivity = function (api, conf) {
   }
 }
 
-module.exports = function (api, ctx) {
+module.exports = function (api) {
   // register JSON api
   api.registerDescribeApi('QActivity', './component/QActivity.json')
   api.registerDescribeApi('QActivityItem', './component/QActivityItem.json')
