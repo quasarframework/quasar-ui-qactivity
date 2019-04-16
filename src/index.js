@@ -5,7 +5,7 @@
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/IndexAPI.js
  */
 
-const extendQuasarConf = function (api, conf) {
+const extendQuasarConf = function (conf) {
   // make sure qactivity boot file is registered
   conf.boot.push('~@quasar/quasar-app-extension-qactivity/src/boot/qactivity.js')
   console.log(` App Extension (qactivity) Info: 'Adding qactivity boot reference to your quasar.conf.js'`)
@@ -27,7 +27,5 @@ module.exports = function (api) {
   api.registerDescribeApi('QActivityItem', './component/QActivityItem.json')
 
   // extend quasar.conf
-  api.extendQuasarConf((conf) => {
-    extendQuasarConf(api, conf)
-  })
+  api.extendQuasarConf(extendQuasarConf)
 }
