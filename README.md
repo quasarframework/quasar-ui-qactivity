@@ -26,10 +26,10 @@ quasar ext add @quasar/qactivity
 You can use `quasar describe QActivity` or `quasar describe QActivityItem`
 
 # Test Project
-Can be found [here](https://github.com/hawkeye64/quasar-app-extension-qactivity).
+In **demo** folder of **app-extension-qactivity**.
 
 # Demo
-Can be found [here](https://qactivity.netlify.com/#/).
+Can be found [here](https://quasarframework.github.io/app-extension-qactivity/demo/dist/spa/#/).
 
 # Example Code
 Be sure to check out the Test Project for more examples.
