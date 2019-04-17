@@ -16,11 +16,6 @@
       "desc": "Color name for icon text from the Quasar Color Palette",
       "examples": [ "white", "orange-6" ]
     },
-    "bar-distance": {
-      "type": "String",
-      "desc": "Size in CSS units, including unit name",
-      "examples": [ "16px", "1rem" ]
-    },
     "icon-size": {
       "type": "String",
       "desc": "Size in CSS units, including unit name",

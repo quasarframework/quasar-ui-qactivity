@@ -1,10 +1,7 @@
 import Vue from 'vue'
 import slot from 'quasar/src/utils/slot.js'
 
-import {
-  QAvatar,
-  QIcon
-} from 'quasar'
+import { QAvatar } from 'quasar'
 
 export default Vue.extend({
   name: 'QActivityItem',
@@ -26,27 +23,28 @@ export default Vue.extend({
 
   computed: {
     iconStyle () {
-      let style = {}
       if (this.iconDistance !== void 0) {
-        style['left'] = this.iconDistance
+        return { left: this.iconDistance }
       }
-      return style
     }
   },
 
   methods: {
     __getImageContent (h) {
       if (this.iconImage !== void 0) {
-        return h('img', {
-          domProps: {
-            src: this.iconImage
-          }
-        })
+        return [
+          h('img', {
+            domProps: {
+              src: this.iconImage
+            }
+          })
+        ]
       }
-      return null
     },
+
     __getIconContent (h) {
-      const iconSlot = slot(this, "icon")
+      const iconSlot = slot(this, 'icon')
+
       return h('div', {
         staticClass: 'q-activity-item--icon vertical-middle',
         style: this.iconStyle,
@@ -61,20 +59,17 @@ export default Vue.extend({
             square: this.iconSquare,
             rounded: this.iconRounded
           }
-        }, [
-          this.__getImageContent(h)
-        ])
+        }, this.__getImageContent(h))
       ))
     },
   },
-  render (h) {
-    const defaultSlot = slot(this, 'default')
 
+  render (h) {
     return h('li', {
       staticClass: 'q-activity-item row'
     }, [
       this.__getIconContent(h),
-      h('div', { staticClass: 'col q-activity-item--content'}, defaultSlot)
+      h('div', { staticClass: 'col q-activity-item--content'}, slot(this, 'default'))
     ])
   }
 })

@@ -1,4 +1,4 @@
-QActivity (quasar-app-extension-qactivity)
+QActivity (@quasar/qactivity)
 ===
 
 ![official icon](https://img.shields.io/badge/Quasar%201.0-Official%20UI%20App%20Extension-blue.svg)
@@ -16,7 +16,7 @@ QActivity is the smaller sister to [QTimeline](https://v1.quasar-framework.org/v
 
 One of the most important actions is the ability to adjust the `QActivity` bar distance and the `QActivityItem` icon distance. This is needed when you adjust margins, padding or icon size to make everything line up properly. Therefore, when making an activity list, it is recommended to keep everything the same. If you do use different icon sizes, you will need to adjust the `icon-distance` property appropriately for each `QActivityItem`.
 
-# Installation
+# Install
 To add this App Extension to your Quasar application, run the following (in your Quasar app folder):
 ```
 quasar ext add @quasar/qactivity
@@ -26,10 +26,10 @@ quasar ext add @quasar/qactivity
 You can use `quasar describe QActivity` or `quasar describe QActivityItem`
 
 # Test Project
-Can be found [here](https://github.com/hawkeye64/quasar-app-extension-qactivity).
+In **demo** folder of **app-extension-qactivity**.
 
 # Demo
-Can be found [here](https://qactivity.netlify.com/#/).
+Can be found [here](https://quasarframework.github.io/app-extension-qactivity/demo/dist/spa/#/).
 
 # Example Code
 Be sure to check out the Test Project for more examples.
@@ -99,7 +99,7 @@ Be sure to check out the Test Project for more examples.
 </q-activity>
 ```
 
-# QActivity
+# QActivity Vue Properties
 | Vue&nbsp;Property | Type	| Description |
 |---|---|---|
 | dense | Boolean | Dense mode; occupies less space |
@@ -109,7 +109,7 @@ Be sure to check out the Test Project for more examples.
 
 QActivity has no events or methods. It has a single "default" slot. You can put anything into this slot, but QActivityItem is expected.
 
-# QActivityItem
+# QActivityItem Vue Properties
 | Vue&nbsp;Property | Type	| Description |
 |---|---|---|
 | icon | Boolean | Icon name following Quasar convention; make sure you have the icon library installed |

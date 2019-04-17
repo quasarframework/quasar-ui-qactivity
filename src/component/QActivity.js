@@ -8,7 +8,7 @@ export default Vue.extend({
     dense: Boolean,
     barColor: String,
     barWidth: String,
-    barDistance: String,
+    barDistance: String
   },
 
   computed: {
@@ -25,11 +25,9 @@ export default Vue.extend({
       }
       return style
     },
+
     classes () {
-      return {
-        'q-activity--normal': !this.dense,
-        'q-activity--dense': this.dense
-      }
+      return `q-activity--${this.dense === true ? 'dense' : 'normal'}`
     }
   },
 
