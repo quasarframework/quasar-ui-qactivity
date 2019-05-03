@@ -12,6 +12,7 @@ export default Vue.extend({
   },
 
   computed: {
+
     styles () {
       let style = {}
       if (this.barColor !== void 0) {
