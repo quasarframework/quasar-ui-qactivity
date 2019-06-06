@@ -37,7 +37,7 @@
     "icon-image": {
       "type": "String",
       "desc": "Path to image to use. If used, do not also use `icon`, `icon-color`, `icon-text-color` or `icon-font-size`",
-      "examples": [ "https://cdn.quasar-framework.org/img/boy-avatar.png" ]
+      "examples": [ "https://cdn.quasar.dev/img/boy-avatar.png" ]
     },
     "icon-distance": {
       "type": "String",

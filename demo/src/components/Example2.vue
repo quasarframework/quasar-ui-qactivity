@@ -22,7 +22,7 @@
         >
           <q-parallax
             :height="100"
-            src="https://cdn.quasar-framework.org/img/parallax2.jpg"
+            src="https://cdn.quasar.dev/img/parallax2.jpg"
           />
         </q-activity-item>
         <q-activity-item
@@ -132,7 +132,7 @@ export default {
         {
           iconSize: '50px',
           iconSquare: false,
-          iconImage: 'https://cdn.quasar-framework.org/img/boy-avatar.png',
+          iconImage: 'https://cdn.quasar.dev/img/boy-avatar.png',
           text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga nesciunt architecto reprehenderit ea voluptate voluptates placeat minus corrupti consequatur quidem, ducimus, hic optio iure accusantium aperiam dolorum. Quidem, saepe dolores?',
           time: '1 day ago'
         }

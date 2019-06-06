@@ -13,7 +13,7 @@
         <q-activity-item
           icon-size="40px"
           icon-distance="-13px"
-          icon-image="https://cdn.quasar-framework.org/img/avatar2.jpg"
+          icon-image="https://cdn.quasar.dev/img/avatar2.jpg"
           style="padding-bottom:5px;padding-top:5px;"
         >
           <div class="testimonial-quote group">
