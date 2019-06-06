@@ -62,7 +62,8 @@ module.exports = function (ctx) {
 
     build: {
       scopeHoisting: true,
-      // vueRouterMode: 'history',
+      vueRouterMode: 'history',
+      publicPath: 'app-extension-qactivity',
       // vueCompiler: true,
       // gzip: true,
       // analyze: true,
