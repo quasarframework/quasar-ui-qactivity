@@ -52,7 +52,7 @@ Be sure to check out the Test Project for more examples.
   >
     <q-parallax
       :height="100"
-      src="https://cdn.quasar-framework.org/img/parallax2.jpg"
+      src="https://cdn.quasar.dev/img/parallax2.jpg"
     />
   </q-activity-item>
   <q-activity-item
