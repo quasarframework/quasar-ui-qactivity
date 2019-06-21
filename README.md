@@ -29,7 +29,7 @@ You can use `quasar describe QActivity` or `quasar describe QActivityItem`
 In **demo** folder of **app-extension-qactivity**.
 
 # Demo
-Can be found [here](https://quasarframework.github.io/app-extension-qactivity/demo/dist/spa/#/).
+Can be found [here](https://quasarframework.github.io/app-extension-qactivity).
 
 # Example Code
 Be sure to check out the Test Project for more examples.
