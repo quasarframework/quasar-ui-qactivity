@@ -124,5 +124,5 @@ QActivity has no events or methods. It has a single "default" slot. You can put 
 
 QActivityItem has no events or methods. It has a single "default" slot. You can put anything into this slot.
 
-# Patreon
-If you like (and use) this App Extension, please consider becoming a Quasar [Patreon](https://www.patreon.com/quasarframework).
+# Donate
+If you appreciate the work that went into this App Extension, please consider [donating to Quasar](https://donate.quasar.dev).
