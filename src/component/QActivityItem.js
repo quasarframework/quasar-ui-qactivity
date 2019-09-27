@@ -26,6 +26,7 @@ export default Vue.extend({
       if (this.iconDistance !== void 0) {
         return { left: this.iconDistance }
       }
+      return ''
     }
   },
 
@@ -47,7 +48,7 @@ export default Vue.extend({
 
       return h('div', {
         staticClass: 'q-activity-item--icon vertical-middle',
-        style: this.iconStyle,
+        style: this.iconStyle
       }, iconSlot !== void 0 ? iconSlot : [].concat(
         h(QAvatar, {
           props: {
@@ -61,7 +62,7 @@ export default Vue.extend({
           }
         }, this.__getImageContent(h))
       ))
-    },
+    }
   },
 
   render (h) {
@@ -69,8 +70,7 @@ export default Vue.extend({
       staticClass: 'q-activity-item row'
     }, [
       this.__getIconContent(h),
-      h('div', { staticClass: 'col q-activity-item--content'}, slot(this, 'default'))
+      h('div', { staticClass: 'col q-activity-item--content' }, slot(this, 'default'))
     ])
   }
 })
-
