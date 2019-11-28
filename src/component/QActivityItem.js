@@ -1,9 +1,8 @@
-import Vue from 'vue'
-import slot from 'quasar/src/utils/slot.js'
+import { slot } from 'quasar/src/utils/slot.js'
 
 import { QAvatar } from 'quasar'
 
-export default Vue.extend({
+export default {
   name: 'QActivityItem',
 
   props: {
@@ -73,4 +72,4 @@ export default Vue.extend({
       h('div', { staticClass: 'col q-activity-item--content' }, slot(this, 'default'))
     ])
   }
-})
+}
