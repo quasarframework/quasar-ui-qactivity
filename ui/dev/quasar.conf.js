@@ -5,7 +5,7 @@ const path = require('path')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const { configure } = require('quasar/wrappers')
 
-module.exports = function (ctx) {
+module.exports = configure(function (ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -86,4 +86,4 @@ module.exports = function (ctx) {
       ]
     }
   }
-}
+})

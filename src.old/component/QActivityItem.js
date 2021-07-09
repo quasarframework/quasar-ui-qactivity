@@ -64,7 +64,7 @@ export default {
     }
   },
 
-  render (h) {
+  render  (h) {
     return h('li', {
       staticClass: 'q-activity-item row'
     }, [
