@@ -1,0 +1,53 @@
+{
+  "type": "component",
+  "props": {
+    "icon": {
+      "type": "String",
+      "desc": "Icon name following Quasar convention; make sure you have the icon library installed",
+      "examples": [ "list", "fas fa-list" ]
+    },
+    "icon-color": {
+      "type": "String",
+      "desc": "Color name for icon from the Quasar Color Palette",
+      "examples": [ "blue-grey-8", "white" ]
+    },
+    "icon-text-color": {
+      "type": "String",
+      "desc": "Color name for icon text from the Quasar Color Palette",
+      "examples": [ "white", "orange-6" ]
+    },
+    "icon-size": {
+      "type": "String",
+      "desc": "Size in CSS units, including unit name",
+      "examples": [ "16px", "1rem" ]
+    },
+    "icon-font-size": {
+      "type": "String",
+      "desc": "Size in CSS units, including unit name",
+      "examples": [ "16px", "1rem" ]
+    },
+    "icon-square": {
+      "type": "Boolean",
+      "desc": "Removes border-radius so borders are squared"
+    },
+    "icon-rounded": {
+      "type": "Boolean",
+      "desc": "Applies a small standard border-radius for a squared shape of the component"
+    },
+    "icon-image": {
+      "type": "String",
+      "desc": "Path to image to use. If used, do not also use `icon`, `icon-color`, `icon-text-color` or `icon-font-size`",
+      "examples": [ "https://cdn.quasar.dev/img/boy-avatar.png" ]
+    },
+    "icon-distance": {
+      "type": "String",
+      "desc": "Size in CSS units, including unit name. Used to help center icons on the bar",
+      "examples": [ "-13px", "-0.5rem" ]
+    }
+  },
+  "slots": {
+    "default": {
+      "desc": "Anything can go into this slot"
+    }
+  }
+}
