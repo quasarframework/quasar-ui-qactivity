@@ -49,7 +49,6 @@ export default defineComponent({
           rounded: props.iconRounded
       }, __getImageContent())
 
-
       return h('div', {
         class: ['q-activity-item--icon', 'vertical-middle'],
         style: __iconStyle.value

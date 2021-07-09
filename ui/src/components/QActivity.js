@@ -37,7 +37,6 @@ export default defineComponent({
       if (props.barDistance !== void 0) {
         style['--qactivity-bar-distance'] = props.barDistance
       }
-      console.log(style)
       return style
     })
 
