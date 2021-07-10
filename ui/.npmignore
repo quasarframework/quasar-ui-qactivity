@@ -25,7 +25,8 @@ jsconfig.json
 .babelrc
 
 # Other
-/src/components/QOverlay.json
+/src/components/QActivity.json
+/src/components/QActivityItem.json
 
 # Testing
 /test
