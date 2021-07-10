@@ -9,7 +9,7 @@
         bar-color="blue"
         bar-width="2px"
         bar-distance="32px"
-        class="bg-blue-grey-1"
+        :class="itemClass"
       >
         <q-activity-item
           icon="photo"
@@ -32,7 +32,7 @@
           icon-size="50px"
           icon-font-size="48px"
           :icon-square="true"
-          class="bg-blue-grey-11"
+          :class="itemClass"
           style="padding-bottom:5px;padding-top:5px;"
         >
           <q-item>
@@ -48,7 +48,7 @@
           </q-item>
         </q-activity-item>
         <q-activity-item
-          v-for="(item, index) in data2"
+          v-for="(item, index) in qActivityData"
           :key="index"
           :icon="item.icon"
           :iconColor="item.iconColor"
@@ -58,7 +58,7 @@
           :iconSquare="item.iconSquare"
           :iconRounded="item.iconRounded"
           :iconImage="item.iconImage"
-          :class="{'bg-blue-grey-11': index % 2 }"
+          :class="listClasses(index)"
         >
           <div class="inline-block vertical-middle middle-text">
             {{ item.text }}
@@ -73,70 +73,86 @@
 </template>
 
 <script>
+
+const qActivityData = [
+  {
+    icon: 'favorite',
+    iconColor: 'blue-grey-1',
+    iconTextColor: 'red',
+    iconSize: '50px',
+    iconFontSize: '48px',
+    iconSquare: true,
+    text: '2 issues fixed',
+    time: '1 min ago'
+  },
+  {
+    icon: 'favorite_border',
+    iconColor: 'blue-grey-11',
+    iconTextColor: 'red',
+    iconSize: '50px',
+    iconFontSize: '42px',
+    iconSquare: false,
+    text: '21 new orders',
+    time: '5 min ago'
+  },
+  {
+    icon: 'bolt',
+    iconColor: 'yellow',
+    iconTextColor: 'red',
+    iconSize: '50px',
+    iconFontSize: '48px',
+    iconSquare: true,
+    text: '32 new customers',
+    time: '20 min ago'
+  },
+  {
+    icon: 'not_interested',
+    iconColor: 'red',
+    iconTextColor: 'white',
+    iconSize: '50px',
+    iconFontSize: '48px',
+    iconSquare: false,
+    text: '8 Invoices sent',
+    time: '1 hour ago'
+  },
+  {
+    icon: 'loop',
+    iconColor: 'green',
+    iconTextColor: 'white',
+    iconSize: '50px',
+    iconFontSize: '48px',
+    iconSquare: false,
+    iconRounded: true,
+    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga nesciunt architecto reprehenderit ea voluptate voluptates placeat minus corrupti consequatur quidem, ducimus, hic optio iure accusantium aperiam dolorum. Quidem, saepe dolores?',
+    time: '1 day ago'
+  },
+  {
+    iconSize: '50px',
+    iconSquare: false,
+    iconImage: 'https://cdn.quasar.dev/img/boy-avatar.png',
+    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga nesciunt architecto reprehenderit ea voluptate voluptates placeat minus corrupti consequatur quidem, ducimus, hic optio iure accusantium aperiam dolorum. Quidem, saepe dolores?',
+    time: '1 day ago'
+  }
+]
+
+import { computed } from 'vue'
+import { useQuasar } from 'quasar'
 export default {
-  // name: 'ComponentName',
-  data () {
+  setup () {
+    const $q = useQuasar()
+
+    function listClasses (index) {
+      return (index % 2 === 0) ? $q.dark.isActive ? 'bg-grey-10' : 'bg-blue-grey-11' : ''
+    }
+
+    const itemClass = computed(() => {
+      return $q.dark.isActive ? 'bg-grey-8' : 'bg-blue-grey-1'
+    })
+
     return {
-      data2: [
-        {
-          icon: 'favorite',
-          iconColor: 'blue-grey-1',
-          iconTextColor: 'red',
-          iconSize: '50px',
-          iconFontSize: '48px',
-          iconSquare: true,
-          text: '2 issues fixed',
-          time: '1 min ago'
-        },
-        {
-          icon: 'favorite_border',
-          iconColor: 'blue-grey-11',
-          iconTextColor: 'red',
-          iconSize: '50px',
-          iconFontSize: '42px',
-          iconSquare: false,
-          text: '21 new orders',
-          time: '5 min ago'
-        },
-        {
-          icon: 'bolt',
-          iconColor: 'yellow',
-          iconTextColor: 'red',
-          iconSize: '50px',
-          iconFontSize: '48px',
-          iconSquare: true,
-          text: '32 new customers',
-          time: '20 min ago'
-        },
-        {
-          icon: 'not_interested',
-          iconColor: 'red',
-          iconTextColor: 'white',
-          iconSize: '50px',
-          iconFontSize: '48px',
-          iconSquare: false,
-          text: '8 Invoices sent',
-          time: '1 hour ago'
-        },
-        {
-          icon: 'loop',
-          iconColor: 'green',
-          iconTextColor: 'white',
-          iconSize: '50px',
-          iconFontSize: '48px',
-          iconSquare: false,
-          iconRounded: true,
-          text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga nesciunt architecto reprehenderit ea voluptate voluptates placeat minus corrupti consequatur quidem, ducimus, hic optio iure accusantium aperiam dolorum. Quidem, saepe dolores?',
-          time: '1 day ago'
-        },
-        {
-          iconSize: '50px',
-          iconSquare: false,
-          iconImage: 'https://cdn.quasar.dev/img/boy-avatar.png',
-          text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga nesciunt architecto reprehenderit ea voluptate voluptates placeat minus corrupti consequatur quidem, ducimus, hic optio iure accusantium aperiam dolorum. Quidem, saepe dolores?',
-          time: '1 day ago'
-        }
-      ]
+      listClasses,
+      itemClass,
+      qActivityData
     }
   }
 }
