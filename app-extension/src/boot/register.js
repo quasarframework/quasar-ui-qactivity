@@ -1,7 +1,5 @@
 import Vue from 'vue'
-import QActivity from '@quasar/quasar-ui-qactivity/QActivity'
-import QActivityItem from '@quasar/quasar-ui-qactivity/QActivityItem'
+import VuePlugin from '@quasar/quasar-ui-qactivity'
 
-Vue.use('q-activity', QActivity)
-Vue.use('q-activity-item', QActivityItem)
+Vue.use(VuePlugin)
 
