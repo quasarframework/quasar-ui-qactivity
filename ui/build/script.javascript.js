@@ -3,71 +3,110 @@ const fs = require('fs')
 const fse = require('fs-extra')
 const rollup = require('rollup')
 const uglify = require('uglify-js')
-const buble = require('@rollup/plugin-buble')
+// const buble = require('@rollup/plugin-buble')
 const json = require('@rollup/plugin-json')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
-const replace = require('@rollup/plugin-replace')
 
 const { version } = require('../package.json')
 
 const buildConf = require('./config')
 const buildUtils = require('./utils')
 
-const rollupPlugins = [
-  replace({
-    preventAssignment: false,
-    values: {
-      __UI_VERSION__: `'${ version }'`
-    }
-  }),
-  nodeResolve({
-    extensions: ['.js'],
-    preferBuiltins: false
-  }),
-  json(),
-  buble({
-    objectAssign: 'Object.assign'
-  })
+const rollupPluginsModern = [
+  nodeResolve(),
+  json()
 ]
+
+// const bubleConfig = {
+//   objectAssign: 'Object.assign'
+// }
+
+// const nodeResolveConfig = {
+//   extensions: ['.js'],
+//   preferBuiltins: false
+// }
+
+const uglifyJsOptions = {
+  compress: {
+    // turn off flags with small gains to speed up minification
+    arrows: false,
+    collapse_vars: false,
+    comparisons: false,
+    // computed_props: false,
+    hoist_funs: false,
+    hoist_props: false,
+    hoist_vars: false,
+    inline: false,
+    loops: false,
+    negate_iife: false,
+    properties: false,
+    reduce_funcs: false,
+    reduce_vars: false,
+    switches: false,
+    toplevel: false,
+    typeofs: false,
+
+    // a few flags with noticable gains/speed ratio
+    booleans: true,
+    if_return: true,
+    sequences: true,
+    unused: true,
+
+    // required features to drop conditional branches
+    conditionals: true,
+    dead_code: true,
+    evaluate: true
+  }
+}
+
+// const rollupPlugins = [
+//   nodeResolve(nodeResolveConfig),
+//   json(),
+//   buble(bubleConfig)
+// ]
 
 const builds = [
   {
     rollup: {
       input: {
-        input: pathResolve('../src/index.esm.js')
+        input: pathResolve('entry/index.esm.js')
       },
       output: {
         file: pathResolve('../dist/index.esm.js'),
-        format: 'es'
+        format: 'es',
+        exports: 'auto'
       }
     },
     build: {
-      // unminified: true,
-      minified: true
+      unminified: true,
+      minified: true,
+      minExt: true
     }
   },
   {
     rollup: {
       input: {
-        input: pathResolve('../src/index.common.js')
+        input: pathResolve('entry/index.common.js')
       },
       output: {
         file: pathResolve('../dist/index.common.js'),
-        format: 'cjs'
+        format: 'cjs',
+        exports: 'auto'
       }
     },
     build: {
-      // unminified: true,
-      minified: true
+      unminified: true,
+      minified: true,
+      minExt: true
     }
   },
   {
     rollup: {
       input: {
-        input: pathResolve('../src/index.umd.js')
+        input: pathResolve('entry/index.umd.js')
       },
       output: {
-        name: 'qactivity',
+        name: 'QActivity',
         file: pathResolve('../dist/index.umd.js'),
         format: 'umd'
       }
@@ -98,10 +137,10 @@ function pathResolve (_path) {
 function addAssets (builds, type, injectName) {
   const
     files = fs.readdirSync(pathResolve('../../ui/src/components/' + type)),
-    plugins = [ buble(bubleConfig) ],
+    plugins = [buble(bubleConfig)],
     outputDir = pathResolve(`../dist/${type}`)
 
-    fse.mkdirp(outputDir)
+  fse.mkdirp(outputDir)
 
   files
     .filter(file => file.endsWith('.js'))
@@ -116,7 +155,7 @@ function addAssets (builds, type, injectName) {
           output: {
             file: addExtension(pathResolve(`../dist/${type}/${file}`), 'umd'),
             format: 'umd',
-            name: `qactivity.${injectName}.${name}`
+            name: `QActivity.${injectName}.${name}`
           }
         },
         build: {
@@ -134,8 +173,8 @@ function build (builds) {
 
 function genConfig (opts) {
   Object.assign(opts.rollup.input, {
-    plugins: rollupPlugins,
-    external: [ 'vue', 'quasar' ]
+    plugins: rollupPluginsModern,
+    external: ['vue', 'quasar']
   })
 
   Object.assign(opts.rollup.output, {
@@ -151,13 +190,32 @@ function addExtension (filename, ext = 'min') {
   return `${filename.slice(0, insertionPoint)}.${ext}${filename.slice(insertionPoint)}`
 }
 
+function injectVueRequirement (code) {
+  // eslint-disable-next-line quotes
+  const index = code.indexOf(`Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue`)
+
+  if (index === -1) {
+    return code
+  }
+
+  const checkMe = ` if (Vue === void 0) {
+    console.error('[ QActivity ] Vue is required to run. Please add a script tag for it before loading QCOverlay.')
+    return
+  }
+  `
+
+  return code.substring(0, index - 1)
+    + checkMe
+    + code.substring(index)
+}
+
 function buildEntry (config) {
   return rollup
     .rollup(config.rollup.input)
     .then(bundle => bundle.generate(config.rollup.output))
     .then(({ output }) => {
       const code = config.rollup.output.format === 'umd'
-        ? injectVueRequirement(output[0].code)
+        ? injectVueRequirement(output[ 0 ].code)
         : output[0].code
 
       return config.build.unminified
@@ -169,11 +227,12 @@ function buildEntry (config) {
         return code
       }
 
-      const minified = uglify.minify(code, {
-        compress: {
-          pure_funcs: ['makeMap']
-        }
-      })
+      // const minified = uglify.minify(code, {
+      //   compress: {
+      //     pure_funcs: ['makeMap']
+      //   }
+      // })
+      const minified = uglify.minify(code, uglifyJsOptions)
 
       if (minified.error) {
         return Promise.reject(minified.error)
@@ -191,23 +250,4 @@ function buildEntry (config) {
       console.error(err)
       process.exit(1)
     })
-}
-
-function injectVueRequirement (code) {
-  // eslint-disable-next-line
-  const index = code.indexOf(`Vue = Vue && Vue.hasOwnProperty('default') ? Vue['default'] : Vue`)
-
-  if (index === -1) {
-    return code
-  }
-
-  const checkMe = ` if (Vue === void 0) {
-    console.error('[ Quasar ] Vue is required to run. Please add a script tag for it before loading Quasar.')
-    return
-  }
-  `
-
-  return code.substring(0, index - 1) +
-    checkMe +
-    code.substring(index)
 }
