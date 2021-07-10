@@ -1,22 +1,29 @@
 {
-  "type": "component",
+  "meta": {
+    "docsUrl": "https://quasarframework.github.io/quasar-ui-qactivity/docs"
+  },
+
   "props": {
     "dense": {
       "type": "Boolean",
+      "category": "behavior",
       "desc": "Dense mode; occupies less space"
     },
     "bar-color": {
       "type": "String",
+      "category": "style",
       "desc": "CSS color (no Quasar colors allowed here)",
       "examples": [ "blue", "#0000FF" ]
     },
     "bar-width": {
       "type": "String",
+      "category": "style",
       "desc": "Size in CSS units, including unit name",
       "examples": [ "2px" ]
     },
     "bar-distance": {
       "type": "String",
+      "category": "style",
       "desc": "Size in CSS units, including unit name",
       "examples": [ "16px", "1rem" ]
     }
