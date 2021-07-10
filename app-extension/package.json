@@ -30,7 +30,6 @@
     "activity",
     "list"
   ],
-
   "dependencies": {
     "@quasar/quasar-ui-qactivity": "^2.0.0-alpha.1"
   },
