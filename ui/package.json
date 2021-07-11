@@ -29,10 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hawkeye64/app-extension-qactivity.git"
+    "url": "git+https://github.com/quasarframework/quasar-ui-qactivity.git"
   },
-  "bugs": "https://github.com/quasarframework/app-extension-qactivity/issues",
-  "homepage": "https://github.com/quasarframework/app-extension-qactivity",
+  "bugs": "https://github.com/quasarframework/quasar-ui-qactivity/issues",
+  "homepage": "https://github.com/quasarframework/quasar-ui-qactivity",
   "keywords": [
     "quasar",
     "app",

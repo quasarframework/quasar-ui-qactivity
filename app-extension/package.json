@@ -16,12 +16,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "bugs": "https://github.com/quasarframework/app-extension-qactivity/issues",
+  "bugs": "https://github.com/quasarframework/quasar-ui-qactivity/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quasarframework/app-extension-qactivity.git"
+    "url": "git+https://github.com/quasarframework/quasar-ui-qactivity.git"
   },
-  "homepage": "https://quasarframework.github.io/app-extension-qactivity/",
+  "homepage": "https://github.com/quasarframework/quasar-ui-qactivity",
   "keywords": [
     "quasar",
     "app",
