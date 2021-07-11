@@ -11,7 +11,7 @@
         />
 
         <q-toolbar-title>
-          quasar-ui-app-extension-qactivity v{{ version }}
+          QActivity v{{ version }}
         </q-toolbar-title>
         <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" />
         <div>Quasar v{{ $q.version }}</div>
