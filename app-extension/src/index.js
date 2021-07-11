@@ -28,7 +28,6 @@ module.exports = function (api) {
   // Uncomment the line below if you provide a JSON API for your component
   api.registerDescribeApi('QActivity', '~@quasar/quasar-ui-qactivity/dist/api/QActivity.json')
   api.registerDescribeApi('QActivityItem', '~@quasar/quasar-ui-qactivity/dist/api/QActivityItem.json')
-  // api.registerDescribeApi('MyComponent', '~quasar-ui-app-extension-qactivity/src/components/MyComponent.json')
 
   // We extend /quasar.conf.js
   api.extendQuasarConf(extendConf)
