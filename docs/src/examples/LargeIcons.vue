@@ -1,10 +1,6 @@
 <template>
-  <div class="col-12 q-gutter-lg">
-    <q-card class="q-pa-sm" style="width: 400px;">
-      <q-card-section>
-        <div class="text-h6">Large icons</div>
-        <div class="text-subtitle2">Square, rounded, colors, bar color, bar width</div>
-      </q-card-section>
+  <div class="q-pa-md q-gutter-sm">
+    <q-card class="q-pa-sm" style="width: 100%;">
       <q-activity
         bar-color="blue"
         bar-width="2px"
@@ -64,7 +60,7 @@
             <div class="inline-block vertical-middle middle-text col">
               {{ item.text }}
             </div>
-            <div class="inline-block vertical-middle side-text col col-shrink" style="min-width: 100px;">
+            <div class="inline-block vertical-middle side-text text-right q-pr-sm col col-shrink" style="min-width: 100px;">
               {{ item.time }}
             </div>
           </div>
@@ -75,6 +71,10 @@
 </template>
 
 <script>
+import { defineComponent, computed } from 'vue'
+import { useQuasar } from 'quasar'
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity/src/QActivity.js'
+import '@quasar/quasar-ui-qactivity/src/QActivity.sass'
 
 const qActivityData = [
   {
@@ -137,10 +137,14 @@ const qActivityData = [
   }
 ]
 
-import { computed } from 'vue'
-import { useQuasar } from 'quasar'
-export default {
-  setup () {
+export default defineComponent({
+  name: 'Dense',
+  components: {
+    QActivity,
+    QActivityItem
+  },
+
+  setup() {
     const $q = useQuasar()
 
     function listClasses (index) {
@@ -157,20 +161,5 @@ export default {
       qActivityData
     }
   }
-}
+})
 </script>
-
-<style>
-.middle-text {
-  max-width:70%;
-  width: 100%;
-  text-align: left;
-  padding: 5px;
-}
-.side-text {
-  max-width:30%;
-  width: 100%;
-  text-align: right;
-  padding: 5px;
-}
-</style>

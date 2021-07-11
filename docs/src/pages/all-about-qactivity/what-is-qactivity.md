@@ -17,8 +17,3 @@ And, if you're looking to help out, check out our [Call to action](/contributing
 ## Everything you need for a complete solution
 
 QActivity allows you to write simple timelines.
-
-## Features
-
-- ...
-- ...
