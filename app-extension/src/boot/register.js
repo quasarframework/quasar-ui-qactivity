@@ -1,5 +1,7 @@
-import Vue from 'vue'
+import { boot } from 'quasar/wrappers'
 import VuePlugin from '@quasar/quasar-ui-qactivity'
 
-Vue.use(VuePlugin)
+export default boot(({ app }) => {
+  app.use(VuePlugin)
+})
 
