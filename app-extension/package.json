@@ -2,7 +2,7 @@
   "name": "@quasar/quasar-app-extension-qactivity",
   "version": "2.0.0-alpha.2",
   "description": "QActivity is an app extension for Quasar for making an activity list",
-  "author": "Hawkeye64 <jeff@quasar-framework.org>",
+  "author": "Jeff Galbraith <jeff@quasar.dev>",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/quasarframework/quasar-ui-qactivity",
   "keywords": [
     "quasar",
+    "quasarframework",
     "app",
     "app extension",
     "extension",
