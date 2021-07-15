@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-app-extension-qactivity",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "QActivity is an app extension for Quasar for making an activity list",
   "author": "Hawkeye64 <jeff@quasar-framework.org>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "list"
   ],
   "dependencies": {
-    "@quasar/quasar-ui-qactivity": "^2.0.0-alpha.1"
+    "@quasar/quasar-ui-qactivity": "^2.0.0-alpha.2"
   },
   "engines": {
     "node": ">= 10.0.0",
