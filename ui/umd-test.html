@@ -18,7 +18,7 @@
         <q-header class="glossy bg-primary">
           <q-toolbar>
             <q-toolbar-title>
-              quasar-ui-qui v{{ version }}
+              QActivity v{{ version }}
             </q-toolbar-title>
 
             <div>Quasar v{{ $q.version }}</div>
@@ -46,13 +46,13 @@
       const app = Vue.createApp({
         setup () {
           return {
-            version: qactivity.version
+            version: QActivity.version
           }
         }
       })
 
       app.use(Quasar)
-      app.use(qactivity)
+      app.use(QActivity)
       app.mount('#q-app')
     </script>
   </body>
