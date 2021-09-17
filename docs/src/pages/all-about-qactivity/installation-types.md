@@ -194,7 +194,7 @@ app.mount("#app");
 
 
 ## Testing on Codepen
-[QActivity UMD Example on Codepen](https://codepen.io/Hawkeye64/pen/ZEemBjm) // TBD
+[QActivity UMD Example on Codepen](https://codepen.io/Hawkeye64/pen/WNOMGBL)
 
 # Project source
 Can be found [here](https://github.com/quasarframework/quasar-ui-qactivity/tree/next).
