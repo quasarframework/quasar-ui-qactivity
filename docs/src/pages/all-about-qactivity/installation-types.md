@@ -15,7 +15,7 @@ related:
 
 To add as an App Extension to your Quasar application, run the following (in your Quasar app folder):
 ```
-$ quasar ext add @quasar/qactivity
+$ quasar ext add @quasar/qactivity@next
 ```
 
 #### Uninstall
@@ -29,12 +29,12 @@ $ quasar ext remove @quasar/qactivity
 When installed as an App Extension, you can use `quasar describe QActivity`.
 
 
-### Or Create and register a boot file
+### Or install, create and register a boot file
 
 ```
-$ yarn add @quasar/quasar-ui-qactivity
+$ yarn add @quasar/quasar-ui-qactivity@next
 # or
-$ npm install @quasar/quasar-ui-qactivity
+$ npm install @quasar/quasar-ui-qactivity@next
 ```
 
 Then
@@ -71,7 +71,7 @@ css: [
 ],
 
 build: {
-  transpile = true,
+  transpile: true,
   transpileDependencies: [
     /quasar-ui-qactivity[\\/]src/
   ]
@@ -143,7 +143,7 @@ export default {
 
 ## UMD variant
 
-Exports `window.QActivity`.
+Exports `window.QActivity` (`QActivity.QActivity` and `QActivity.QActivityItem`).
 
 ### Quasar install
 
@@ -189,6 +189,7 @@ const app = Vue.createApp({
 });
 
 app.component("QActivity", QActivity.QActivity);
+app.component("QActivityItem", QActivity.QActivityItem);
 app.mount("#app");
 ```
 

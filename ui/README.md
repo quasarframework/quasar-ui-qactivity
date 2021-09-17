@@ -20,7 +20,7 @@ One of the most important actions is the ability to adjust the `QActivity` bar d
 # Install
 To add this App Extension to your Quasar application, run the following (in your Quasar app folder):
 ```
-quasar ext add @quasar/qactivity
+quasar ext add @quasar/qactivity@next
 ```
 
 # Describe
