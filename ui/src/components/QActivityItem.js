@@ -1,5 +1,5 @@
 import {h, defineComponent, computed} from 'vue'
-import {QAvatar} from "quasar";
+import { QAvatar } from "quasar";
 
 export default defineComponent({
   name: 'QActivityItem',
