@@ -1,4 +1,5 @@
 import {h, defineComponent, computed} from 'vue'
+import {useQuasar} from "quasar";
 
 export default defineComponent({
   name: 'QActivity',
@@ -8,8 +9,7 @@ export default defineComponent({
       default: false
     },
     barColor: {
-      type: String,
-      default: '#FFF'
+      type: String
     },
     barWidth: {
       type: String,
@@ -22,6 +22,8 @@ export default defineComponent({
   },
   setup(props, {slots}) {
 
+    const $q = useQuasar()
+
     const __classes = computed(() => {
       return `q-activity--${props.dense === true ? 'dense' : 'normal'}`
     })
@@ -30,6 +32,8 @@ export default defineComponent({
       let style = {}
       if (props.barColor !== void 0) {
         style['--qactivity-bar-color'] = props.barColor
+      } else {
+        style['--qactivity-bar-color'] = $q.dark.isActive ?  '#FFF' : '#000'
       }
       if (props.barWidth !== void 0) {
         style['--qactivity-bar-width'] = props.barWidth

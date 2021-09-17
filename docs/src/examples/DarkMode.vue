@@ -1,23 +1,16 @@
 <template>
-  <div class="col-12 q-gutter-lg">
-    <q-card class="q-pa-sm" style="width: 300px;">
-      <q-card-section>
-        <div class="text-h6">Small icons</div>
-        <div class="text-subtitle2">Square, rounded, colors, dense</div>
-      </q-card-section>
+  <div class="q-pa-md q-gutter-sm">
+    <q-card class="q-pa-sm" style="width: 100%;">
       <q-activity
-        dense
-        bar-color="red"
-        bar-width="1px"
-        bar-distance="15px"
-        :class="itemClass"
+        bar-width="4px"
+        bar-distance="32px"
       >
         <q-activity-item
           icon="photo"
           icon-color="blue"
           icon-text-color="white"
-          icon-size="1rem"
-          icon-font-size="0.75rem"
+          icon-size="50px"
+          icon-font-size="48px"
           :icon-square="true"
           style="padding-bottom:5px;padding-top:5px;"
         >
@@ -30,10 +23,9 @@
           icon="list"
           icon-color="orange-8"
           icon-text-color="white"
-          icon-size="1rem"
-          icon-font-size="0.75rem"
+          icon-size="50px"
+          icon-font-size="48px"
           :icon-square="true"
-          :class="itemClass"
           style="padding-bottom:5px;padding-top:5px;"
         >
           <q-item>
@@ -49,23 +41,24 @@
           </q-item>
         </q-activity-item>
         <q-activity-item
-          v-for="(item, index) in data"
+          v-for="(item, index) in qActivityData"
           :key="index"
           :icon="item.icon"
-          :icon-color="item.iconColor"
-          :icon-text-color="item.iconTextColor"
-          :icon-size="item.iconSize"
-          :icon-font-size="item.iconFontSize"
-          :icon-square="item.iconSquare"
-          :icon-rounded="item.iconRounded"
-          :icon-image="item.iconImage"
-          :class="listClasses(index)"
+          :iconColor="item.iconColor"
+          :iconTextColor="item.iconTextColor"
+          :iconSize="item.iconSize"
+          :iconFontSize="item.iconFontSize"
+          :iconSquare="item.iconSquare"
+          :iconRounded="item.iconRounded"
+          :iconImage="item.iconImage"
         >
-          <div class="inline-block vertical-middle middle-text">
-            {{ item.text }}
-          </div>
-          <div class="inline-block vertical-middle side-text">
-            {{ item.time }}
+          <div class="full-width row justify-evenly">
+            <div class="inline-block vertical-middle middle-text col">
+              {{ item.text }}
+            </div>
+            <div class="inline-block vertical-middle side-text text-right q-pr-sm col col-shrink" style="min-width: 100px;">
+              {{ item.time }}
+            </div>
           </div>
         </q-activity-item>
       </q-activity>
@@ -74,16 +67,17 @@
 </template>
 
 <script>
-import { useQuasar } from 'quasar'
-import { computed } from 'vue'
+import { defineComponent } from 'vue'
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity/src/QActivity.js'
+import '@quasar/quasar-ui-qactivity/src/QActivity.sass'
 
-const data = [
+const qActivityData = [
   {
     icon: 'favorite',
     iconColor: 'blue-grey-1',
     iconTextColor: 'red',
-    iconSize: '1rem',
-    iconFontSize: '0.75rem',
+    iconSize: '50px',
+    iconFontSize: '48px',
     iconSquare: true,
     text: '2 issues fixed',
     time: '1 min ago'
@@ -92,8 +86,8 @@ const data = [
     icon: 'favorite_border',
     iconColor: 'blue-grey-11',
     iconTextColor: 'red',
-    iconSize: '1rem',
-    iconFontSize: '0.75rem',
+    iconSize: '50px',
+    iconFontSize: '42px',
     iconSquare: false,
     text: '21 new orders',
     time: '5 min ago'
@@ -102,8 +96,8 @@ const data = [
     icon: 'bolt',
     iconColor: 'yellow',
     iconTextColor: 'red',
-    iconSize: '1rem',
-    iconFontSize: '0.95rem',
+    iconSize: '50px',
+    iconFontSize: '48px',
     iconSquare: true,
     text: '32 new customers',
     time: '20 min ago'
@@ -112,8 +106,8 @@ const data = [
     icon: 'not_interested',
     iconColor: 'red',
     iconTextColor: 'white',
-    iconSize: '1rem',
-    iconFontSize: '0.75rem',
+    iconSize: '50px',
+    iconFontSize: '48px',
     iconSquare: false,
     text: '8 Invoices sent',
     time: '1 hour ago'
@@ -122,15 +116,15 @@ const data = [
     icon: 'loop',
     iconColor: 'green',
     iconTextColor: 'white',
-    iconSize: '1rem',
-    iconFontSize: '0.75rem',
+    iconSize: '50px',
+    iconFontSize: '48px',
     iconSquare: false,
     iconRounded: true,
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga nesciunt architecto reprehenderit ea voluptate voluptates placeat minus corrupti consequatur quidem, ducimus, hic optio iure accusantium aperiam dolorum. Quidem, saepe dolores?',
     time: '1 day ago'
   },
   {
-    iconSize: '1rem',
+    iconSize: '50px',
     iconSquare: false,
     iconImage: 'https://cdn.quasar.dev/img/boy-avatar.png',
     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga nesciunt architecto reprehenderit ea voluptate voluptates placeat minus corrupti consequatur quidem, ducimus, hic optio iure accusantium aperiam dolorum. Quidem, saepe dolores?',
@@ -138,27 +132,17 @@ const data = [
   }
 ]
 
-export default {
-  // name: 'ComponentName',
-  setup () {
-    const $q = useQuasar()
+export default defineComponent({
+  name: 'Dense',
+  components: {
+    QActivity,
+    QActivityItem
+  },
 
-    function listClasses (index) {
-      return (index % 2 === 0) ? $q.dark.isActive ? 'bg-grey-10' : 'bg-blue-grey-11' : ''
-    }
-
-    const itemClass = computed(() => {
-      return $q.dark.isActive ? 'bg-grey-8' : 'bg-blue-grey-1'
-    })
-
+  setup() {
     return {
-      listClasses,
-      itemClass,
-      data
+      qActivityData
     }
   }
-}
+})
 </script>
-
-<style>
-</style>

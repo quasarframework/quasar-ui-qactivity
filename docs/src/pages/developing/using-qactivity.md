@@ -6,6 +6,11 @@ components:
   - apis/QActivityJsonApi
   - apis/QActivityItemJsonApi
 ---
+
+::: tip
+QActivity also includs an automatic dark mode if you do not override the `bar-color` property.
+:::
+
 ## API
 <q-activity-json-api />
 <q-activity-item-json-api />
@@ -36,3 +41,10 @@ components:
   codepen-title="QActivity"
 />
 
+### Dark mode support
+
+<example-viewer
+  title=""
+  file="DarkMode"
+  codepen-title="QActivity"
+/>

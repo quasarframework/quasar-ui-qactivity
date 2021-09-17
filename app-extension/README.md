@@ -7,7 +7,7 @@ The QActivity app extension (@quasar/quasar-app-extension-qactivity) installs an
 
 # Install
 ```bash
-quasar ext add @quasar/qactivity
+quasar ext add @quasar/qactivity@next
 ```
 Quasar CLI will retrieve it from NPM and install the extension.
 
