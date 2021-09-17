@@ -74,11 +74,21 @@ module.exports = configure(function (ctx) {
       // https://quasar.dev/quasar-cli/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
       chainWebpack (chain) {
-        chain.plugin('eslint-webpack-plugin')
-          .use(ESLintPlugin, [{
-            extensions: [ 'js', 'vue' ],
-            exclude: 'node_modules'
-          }])
+        if(ctx.prod) {
+          chain.plugin('eslint-webpack-plugin')
+            .use(ESLintPlugin, [{
+              extensions: [ 'js', 'vue' ],
+              exclude: 'node_modules'
+            }])
+        } else {
+          chain.plugin('eslint-webpack-plugin')
+            .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
+
+          chain.resolve.alias.merge({
+            ui: path.resolve(__dirname, '../ui/src/index.js'),
+            '@quasar/quasar-ui-qactivity': path.resolve(__dirname, '../ui')
+          })
+        }
 
         chain.resolve.alias.merge({
           examples: path.resolve(__dirname, './src/examples')

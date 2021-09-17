@@ -18,9 +18,15 @@ setDefaults({
 })
 
 export default boot(({ app }) => {
-  // app.use(VuePlugin)
+
   app.use(ExampleViewer)
   app.component('JsonApiViewer', JsonApiViewer)
   app.component('MarkdownPage', MarkdownPage)
   app.component('MarkdownLink', MarkdownLink)
+
+  if (process.env.DEV) {
+    const QActivity = require('@quasar/quasar-ui-qactivity')
+    app.use(QActivity)
+  }
+
 })
