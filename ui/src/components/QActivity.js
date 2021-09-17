@@ -44,7 +44,6 @@ export default defineComponent({
       return style
     })
 
-    console.log(props.barColor)
     const slot = slots.default
     return () =>  h('ul', {
       class: 'q-activity ' + __classes.value,
