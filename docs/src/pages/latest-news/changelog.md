@@ -3,6 +3,6 @@ title: Changelog
 desc: The latest QActivity releases
 keys: latest-news
 components:
-- releases/QActivityReleases
+- releases/Releases
 ---
-<q-activity-releases class="q-mt-sm"/>
+<releases class="q-mt-sm"/>
