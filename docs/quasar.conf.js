@@ -55,12 +55,15 @@ module.exports = configure(function (ctx) {
         }
       },
 
-      // transpile: false,
+      transpile: true,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).
       // Applies only if "transpile" is set to true.
-      // transpileDependencies: [],
+      transpileDependencies: [
+        /quasar-ui-json-api-viewer[\\/]src/,
+        /quasar-ui-example-viewer[\\/]src/
+      ],
 
       // rtl: false, // https://quasar.dev/options/rtl-support
       // preloadChunks: true,
@@ -80,7 +83,8 @@ module.exports = configure(function (ctx) {
               extensions: [ 'js', 'vue' ],
               exclude: 'node_modules'
             }])
-        } else {
+        }
+        else {
           chain.plugin('eslint-webpack-plugin')
             .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
 
