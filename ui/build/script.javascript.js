@@ -139,24 +139,24 @@ function addAssets (builds, type, injectName) {
   const
     files = fs.readdirSync(pathResolve('../../ui/src/components/' + type)),
     plugins = [buble(bubleConfig)],
-    outputDir = pathResolve(`../dist/${type}`)
+    outputDir = pathResolve(`../dist/${ type }`)
 
   fse.mkdirp(outputDir)
 
   files
     .filter(file => file.endsWith('.js'))
     .forEach(file => {
-      const name = file.substr(0, file.length - 3).replace(/-([a-z])/g, g => g[1].toUpperCase())
+      const name = file.substr(0, file.length - 3).replace(/-([a-z])/g, g => g[ 1 ].toUpperCase())
       builds.push({
         rollup: {
           input: {
-            input: pathResolve(`../src/components/${type}/${file}`),
+            input: pathResolve(`../src/components/${ type }/${ file }`),
             plugins
           },
           output: {
-            file: addExtension(pathResolve(`../dist/${type}/${file}`), 'umd'),
+            file: addExtension(pathResolve(`../dist/${ type }/${ file }`), 'umd'),
             format: 'umd',
-            name: `QActivity.${injectName}.${name}`
+            name: `QActivity.${ injectName }.${ name }`
           }
         },
         build: {
@@ -175,7 +175,7 @@ function build (builds) {
 function genConfig (opts) {
   Object.assign(opts.rollup.input, {
     plugins: rollupPluginsModern,
-    external: ['vue', 'quasar']
+    external: [ 'vue', 'quasar' ]
   })
 
   Object.assign(opts.rollup.output, {
@@ -188,7 +188,7 @@ function genConfig (opts) {
 
 function addExtension (filename, ext = 'min') {
   const insertionPoint = filename.lastIndexOf('.')
-  return `${filename.slice(0, insertionPoint)}.${ext}${filename.slice(insertionPoint)}`
+  return `${ filename.slice(0, insertionPoint) }.${ ext }${ filename.slice(insertionPoint) }`
 }
 
 function injectVueRequirement (code) {
@@ -217,7 +217,7 @@ function buildEntry (config) {
     .then(({ output }) => {
       const code = config.rollup.output.format === 'umd'
         ? injectVueRequirement(output[ 0 ].code)
-        : output[0].code
+        : output[ 0 ].code
 
       return config.build.unminified
         ? buildUtils.writeFile(config.rollup.output.file, code)
@@ -236,6 +236,7 @@ function buildEntry (config) {
       const minified = uglify.minify(code, uglifyJsOptions)
 
       if (minified.error) {
+        // eslint-disable-next-line promise/no-return-wrap
         return Promise.reject(minified.error)
       }
 
