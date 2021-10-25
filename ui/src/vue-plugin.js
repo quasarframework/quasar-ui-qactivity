@@ -3,12 +3,6 @@ import QActivityItem from './components/QActivityItem'
 
 import { version } from './version'
 
-export {
-  version,
-  QActivity,
-  QActivityItem
-}
-
 export default {
   version,
   QActivity,

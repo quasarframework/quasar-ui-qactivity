@@ -1,31 +1,34 @@
+process.env.BABEL_ENV = 'production'
+
 const path = require('path')
 const fs = require('fs')
 const fse = require('fs-extra')
 const rollup = require('rollup')
 const uglify = require('uglify-js')
-const buble = require('@rollup/plugin-buble')
+// const buble = require('@rollup/plugin-buble')
 const json = require('@rollup/plugin-json')
 const { nodeResolve } = require('@rollup/plugin-node-resolve')
-
-const { version } = require('../package.json')
 
 const buildConf = require('./config')
 const buildUtils = require('./utils')
 
-const bubleConfig = {
-  objectAssign: 'Object.assign'
-}
-
-const nodeResolveConfig = {
-  extensions: ['.js'],
-  preferBuiltins: false
+function pathResolve (_path) {
+  return path.resolve(__dirname, _path)
 }
 
 const rollupPluginsModern = [
-  nodeResolve(nodeResolveConfig),
-  json(),
-  buble(bubleConfig)
+  nodeResolve(),
+  json()
 ]
+
+// const bubleConfig = {
+//   objectAssign: 'Object.assign'
+// }
+
+// const nodeResolveConfig = {
+//   extensions: ['.js'],
+//   preferBuiltins: false
+// }
 
 const uglifyJsOptions = {
   compress: {
@@ -66,59 +69,71 @@ const uglifyJsOptions = {
 //   buble(bubleConfig)
 // ]
 
-const builds = [
-  {
-    rollup: {
-      input: {
-        input: pathResolve('entry/index.esm.js')
-      },
-      output: {
-        file: pathResolve('../dist/index.esm.js'),
-        format: 'es',
-        exports: 'auto'
-      }
-    },
-    build: {
-      unminified: true,
-      minified: true,
-      minExt: true
-    }
-  },
-  {
-    rollup: {
-      input: {
-        input: pathResolve('entry/index.common.js')
-      },
-      output: {
-        file: pathResolve('../dist/index.common.js'),
-        format: 'cjs',
-        exports: 'auto'
-      }
-    },
-    build: {
-      unminified: true,
-      minified: true,
-      minExt: true
-    }
-  },
-  {
-    rollup: {
-      input: {
-        input: pathResolve('entry/index.umd.js')
-      },
-      output: {
-        name: 'QActivity',
-        file: pathResolve('../dist/index.umd.js'),
-        format: 'umd'
-      }
-    },
-    build: {
-      unminified: true,
-      minified: true,
-      minExt: true
-    }
-  }
+const buildEntries = [
+  'index'
 ]
+
+function generateBuilds () {
+  const builds = []
+
+  buildEntries.forEach(entry => {
+    builds.push({
+      rollup: {
+        input: {
+          input: pathResolve(`../src/${ entry }.esm.js`)
+        },
+        output: {
+          file: pathResolve(`../dist/${ entry }.esm.js`),
+          format: 'es',
+          exports: 'auto'
+        }
+      },
+      build: {
+        unminified: true,
+        minified: true,
+        minExt: true
+      }
+    })
+    builds.push({
+      rollup: {
+        input: {
+          input: pathResolve(`../src/${ entry }.common.js`)
+        },
+        output: {
+          file: pathResolve(`../dist/${ entry }.common.js`),
+          format: 'cjs',
+          exports: 'auto'
+        }
+      },
+      build: {
+        unminified: true,
+        minified: true,
+        minExt: true
+      }
+    })
+    builds.push({
+      rollup: {
+        input: {
+          input: pathResolve(`../src/${ entry }.umd.js`)
+        },
+        output: {
+          name: entry,
+          file: pathResolve(`../dist/${ entry }.umd.js`),
+          format: 'umd'
+        }
+      },
+      build: {
+        unminified: true,
+        minified: true,
+        minExt: true
+      }
+    })
+  })
+
+  return builds
+}
+
+const builds = generateBuilds()
 
 // Add your asset folders here, if needed
 // addAssets(builds, 'icon-set', 'iconSet')
@@ -129,10 +144,6 @@ build(builds)
 /**
  * Helpers
  */
-
-function pathResolve (_path) {
-  return path.resolve(__dirname, _path)
-}
 
 // eslint-disable-next-line no-unused-vars
 function addAssets (builds, type, injectName) {
