@@ -1,4 +1,4 @@
-> Fpr Quasar v2/Vue v3 support go to the [main](https://github.com/quasarframework/quasar-ui-qactivity/tree/main) branch, or visit the new [documentation](https://qactivity.netlify.app/) hosted on Netlify.
+> For Quasar v2/Vue v3 support go to the [main](https://github.com/quasarframework/quasar-ui-qactivity/tree/main) branch, or visit the new [documentation](https://qactivity.netlify.app/) hosted on Netlify.
 
 QActivity (@quasar/qactivity)
 ===
