@@ -1,13 +1,13 @@
 # Quasar App Extension QActivity
 
-The QActivity app extension (@quasar/quasar-app-extension-qactivity) installs and manages the [QActivity UI](https://github.com/quasarframework/quasar-ui-qactivity/tree/next/ui) component.
+The QActivity app extension (@quasar/quasar-app-extension-qactivity) installs and manages the [QActivity UI](https://github.com/quasarframework/quasar-ui-qactivity/tree/main/ui) component.
 
-![@quasar/quasar-app-extension-qactivity](https://img.shields.io/npm/v/@quasar/quasar-app-extension-qactivity/next?label=@quasar/quasar-app-extension-qactivity)
+![@quasar/quasar-app-extension-qactivity](https://img.shields.io/npm/v/@quasar/quasar-app-extension-qactivity?label=@quasar/quasar-app-extension-qactivity)
 [![npm](https://img.shields.io/npm/dt/@quasar/quasar-app-extension-qactivity.svg)](https://www.npmjs.com/package/@quasar/quasar-app-extension-qactivity)
 
 # Install
 ```bash
-quasar ext add @quasar/qactivity@next
+quasar ext add @quasar/qactivity
 ```
 Quasar CLI will retrieve it from NPM and install the extension.
 
