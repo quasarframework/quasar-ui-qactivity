@@ -13,6 +13,9 @@ QActivity is an `UI App Extension` for [Quasar Framework v1](https://v1.quasar-f
 
 This work is currently in `beta` and there are expected changes while things get worked out. Your help with testing is greatly appreciated.
 
+# Docs
+https://quasarframework.github.io/app-extension-qactivity
+
 # Info
 QActivity is the smaller sister to [QTimeline](https://v1.quasar-framework.org/vue-components/timeline) and can be used to create an activity list.
 
