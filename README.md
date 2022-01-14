@@ -1,8 +1,8 @@
 QActivity (@quasar/qactivity)
 ===
 
-![@quasar/quasar-ui-qactivity](https://img.shields.io/npm/v/@quasar/quasar-ui-qactivity/next?label=@quasar/quasar-ui-qactivity)
-![@quasar/quasar-app-extension-qactivity](https://img.shields.io/npm/v/@quasar/quasar-app-extension-qactivity/next?label=@quasar/quasar-app-extension-qactivity)
+![@quasar/quasar-ui-qactivity](https://img.shields.io/npm/v/@quasar/quasar-ui-qactivity?label=@quasar/quasar-ui-qactivity)
+![@quasar/quasar-app-extension-qactivity](https://img.shields.io/npm/v/@quasar/quasar-app-extension-qactivity?label=@quasar/quasar-app-extension-qactivity)
 [![npm](https://img.shields.io/npm/dt/@quasar/quasar-ui-qactivity.svg)](https://www.npmjs.com/package/@quasar/quasar-ui-qactivity)
 ![@quasar/quasar-app-extension-qactivity](https://img.shields.io/npm/dm/@quasar/quasar-ui-qactivity)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/quasarframework/quasar-ui-qactivity.svg)]()
@@ -20,7 +20,7 @@ One of the most important actions is the ability to adjust the `QActivity` bar d
 # Install
 To add this App Extension to your Quasar application, run the following (in your Quasar app folder):
 ```
-quasar ext add @quasar/qactivity@next
+quasar ext add @quasar/qactivity
 ```
 
 # Describe
