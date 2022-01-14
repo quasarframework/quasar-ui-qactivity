@@ -8,7 +8,7 @@ const { version } = pkg
 
 
 setDefaults({
-  locationUrl: 'https://github.com/quasarframework/quasar-ui-qactivity/tree/next/docs/src/examples',
+  locationUrl: 'https://github.com/quasarframework/quasar-ui-qactivity/tree/main/docs/src/examples',
   jsPaths: [`https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@${ version }/dist/index.umd.min.js`],
   cssPaths: [
     `https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@${ version }/dist/index.min.css`,

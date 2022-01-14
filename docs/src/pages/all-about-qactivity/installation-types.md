@@ -15,7 +15,7 @@ related:
 
 To add as an App Extension to your Quasar application, run the following (in your Quasar app folder):
 ```
-$ quasar ext add @quasar/qactivity@next
+$ quasar ext add @quasar/qactivity
 ```
 
 #### Uninstall
@@ -32,9 +32,9 @@ When installed as an App Extension, you can use `quasar describe QActivity`.
 ### Or install, create and register a boot file
 
 ```
-$ yarn add @quasar/quasar-ui-qactivity@next
+$ yarn add @quasar/quasar-ui-qactivity
 # or
-$ npm install @quasar/quasar-ui-qactivity@next
+$ npm install @quasar/quasar-ui-qactivity
 ```
 
 Then
@@ -152,32 +152,32 @@ Add the following tag(s) after the Quasar ones:
 ```html
 <head>
   <!-- AFTER the Quasar stylesheet tags: -->
-  <link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@next/dist/QActivity.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity/dist/QActivity.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <!-- at end of body, AFTER Quasar script(s): -->
-  <script src="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@next/dist/QActivity.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity/dist/QActivity.umd.min.js"></script>
 </body>
 ```
 If you need the RTL variant of the CSS, then go for the following (instead of the above stylesheet link):
 ```html
-<link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@next/dist/QActivity.rtl.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity/dist/QActivity.rtl.min.css" rel="stylesheet" type="text/css">
 ```
 
 ### Vue install
 
 ```html
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@next/dist/QActivity.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity/dist/QActivity.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <!-- at end of body: -->
-  <script src="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@next/dist/QActivity.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity/dist/QActivity.umd.min.js"></script>
 </body>
 ```
 If you need the RTL variant of the CSS, then go for the following (instead of the above stylesheet link):
 ```html
-<link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@next/dist/QActivity.rtl.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity/dist/QActivity.rtl.min.css" rel="stylesheet" type="text/css">
 ```
 
 Your Vue source:
@@ -198,4 +198,4 @@ app.mount("#app");
 [QActivity UMD Example on Codepen](https://codepen.io/Hawkeye64/pen/WNOMGBL)
 
 # Project source
-Can be found [here](https://github.com/quasarframework/quasar-ui-qactivity/tree/next).
+Can be found [here](https://github.com/quasarframework/quasar-ui-qactivity/tree/main).

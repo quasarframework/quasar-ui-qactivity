@@ -10,7 +10,7 @@ Have a question about QActivity? We're here to help. Before you start, be sure t
 
 ### QActivity GitHub issues
 
-As a first step, it's always good to search open and closed issues on the QActivity [GitHub repo](https://github.com/quasarframework/quasar-ui-qactivity/tree/next).
+As a first step, it's always good to search open and closed issues on the QActivity [GitHub repo](https://github.com/quasarframework/quasar-ui-qactivity/tree/main).
 
 ### QActivity GitHub discussions
 
@@ -28,7 +28,7 @@ File on the [GitHub Issues](https://github.com/quasarframework/quasar-ui-qactivi
 
 ### GitHub pull requests (PR)
 
-If you have a specific fix or contribution, you can generate a pull request on the [QActivity repo](https://github.com/quasarframework/quasar-ui-qactivity/tree/next). Make sure to use the `next` branch for QActivity v2.x+
+If you have a specific fix or contribution, you can generate a pull request on the [QActivity repo](https://github.com/quasarframework/quasar-ui-qactivity/tree/main). Make sure to use the `main` branch for QActivity v2.x+
 
 ## Start a discussion
 

@@ -1,6 +1,9 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
-    <q-card class="q-pa-sm" style="width: 100%;">
+    <q-card
+      class="q-pa-sm"
+      style="width: 100%;"
+    >
       <q-activity
         bar-color="blue"
         bar-width="2px"
@@ -34,12 +37,23 @@
           <q-item>
             <q-item-section>
               <q-item-label>QItem</q-item-label>
-              <q-item-label caption lines="2">Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
+              <q-item-label
+                caption
+                lines="2"
+              >
+                Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.
+              </q-item-label>
             </q-item-section>
 
-            <q-item-section side top>
+            <q-item-section
+              side
+              top
+            >
               <q-item-label caption>5 min ago</q-item-label>
-              <q-icon name="star" color="yellow" />
+              <q-icon
+                name="star"
+                color="yellow"
+              />
             </q-item-section>
           </q-item>
         </q-activity-item>
@@ -47,20 +61,23 @@
           v-for="(item, index) in qActivityData"
           :key="index"
           :icon="item.icon"
-          :iconColor="item.iconColor"
-          :iconTextColor="item.iconTextColor"
-          :iconSize="item.iconSize"
-          :iconFontSize="item.iconFontSize"
-          :iconSquare="item.iconSquare"
-          :iconRounded="item.iconRounded"
-          :iconImage="item.iconImage"
+          :icon-color="item.iconColor"
+          :icon-text-color="item.iconTextColor"
+          :icon-size="item.iconSize"
+          :icon-font-size="item.iconFontSize"
+          :icon-square="item.iconSquare"
+          :icon-rounded="item.iconRounded"
+          :icon-image="item.iconImage"
           :class="listClasses(index)"
         >
           <div class="full-width row justify-evenly">
             <div class="inline-block vertical-middle middle-text col">
               {{ item.text }}
             </div>
-            <div class="inline-block vertical-middle side-text text-right q-pr-sm col col-shrink" style="min-width: 100px;">
+            <div
+              class="inline-block vertical-middle side-text text-right q-pr-sm col col-shrink"
+              style="min-width: 100px;"
+            >
               {{ item.time }}
             </div>
           </div>

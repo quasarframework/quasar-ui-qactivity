@@ -1,6 +1,9 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
-    <q-card class="q-ma-sm q-pa-sm" style="width: 500px;">
+    <q-card
+      class="q-ma-sm q-pa-sm"
+      style="width: 500px;"
+    >
       <q-activity
         bar-color="lightblue"
         bar-width="3px"

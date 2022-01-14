@@ -1,6 +1,9 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
-    <q-card class="q-pa-sm" style="width: 100%;">
+    <q-card
+      class="q-pa-sm"
+      style="width: 100%;"
+    >
       <q-activity
         dense
         bar-color="red"
@@ -35,12 +38,23 @@
           <q-item>
             <q-item-section>
               <q-item-label>QItem</q-item-label>
-              <q-item-label caption lines="2">Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.</q-item-label>
+              <q-item-label
+                caption
+                lines="2"
+              >
+                Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit elit.
+              </q-item-label>
             </q-item-section>
 
-            <q-item-section side top>
+            <q-item-section
+              side
+              top
+            >
               <q-item-label caption>5 min ago</q-item-label>
-              <q-icon name="star" color="yellow" />
+              <q-icon
+                name="star"
+                color="yellow"
+              />
             </q-item-section>
           </q-item>
         </q-activity-item>
@@ -61,7 +75,10 @@
             <div class="inline-block vertical-middle middle-text col">
               {{ item.text }}
             </div>
-            <div class="inline-block vertical-middle side-text text-right q-pr-sm col col-shrink" style="min-width: 100px;">
+            <div
+              class="inline-block vertical-middle side-text text-right q-pr-sm col col-shrink"
+              style="min-width: 100px;"
+            >
               {{ item.time }}
             </div>
           </div>
