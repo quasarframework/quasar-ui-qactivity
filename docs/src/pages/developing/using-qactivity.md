@@ -43,6 +43,8 @@ QActivity also includs an automatic dark mode if you do not override the `bar-co
 
 ### Dark mode support
 
+Change this site to dark mode (upper right) to see what happens.
+
 <example-viewer
   title=""
   file="DarkMode"
