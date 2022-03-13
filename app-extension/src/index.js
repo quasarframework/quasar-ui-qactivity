@@ -6,13 +6,15 @@
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/IndexAPI.js
  */
 
-function extendConf (conf) {
+function extendConf (conf, api) {
   // register our boot file
   conf.boot.push('~@quasar/quasar-app-extension-qactivity/src/boot/register.js')
 
-  // make sure app extension files & ui package gets transpiled
-  conf.build.transpileDependencies.push(/quasar-app-extension-qactivity[\\/]src/)
-  conf.build.transpileDependencies.push(/quasar-ui-qactivity[\\/]src/)
+  if (api.hasVite !== true) {
+    // make sure app extension files & ui package gets transpiled
+    conf.build.transpileDependencies.push(/quasar-app-extension-qactivity[\\/]src/)
+    conf.build.transpileDependencies.push(/quasar-ui-qactivity[\\/]src/)
+  }
 
   // make sure the stylesheet goes through webpack to avoid SSR issues
   conf.css.push('~@quasar/quasar-ui-qactivity/src/index.sass')
@@ -23,7 +25,14 @@ module.exports = function (api) {
   // hard dependencies, as in a minimum version of the "quasar"
   // package or a minimum version of "@quasar/app" CLI
   api.compatibleWith('quasar', '^2.0.0')
-  api.compatibleWith('@quasar/app', '^3.0.0')
+
+  if (api.hasVite === true) {
+    api.compatibleWith('@quasar/app-vite', '^1.0.0-alpha.0')
+  }
+  else {
+    // should be "@quasar/app-webpack" but that is not backward compatible
+    api.compatibleWith('@quasar/app', '^3.0.0')
+  }
 
   // Uncomment the line below if you provide a JSON API for your component
   api.registerDescribeApi('QActivity', '~@quasar/quasar-ui-qactivity/dist/api/QActivity.json')
