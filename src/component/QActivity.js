@@ -1,4 +1,4 @@
-import { slot } from 'quasar/src/utils/slot.js'
+import { slot } from 'quasar/src/utils/private/slot.js'
 
 export default {
   name: 'QActivity',
