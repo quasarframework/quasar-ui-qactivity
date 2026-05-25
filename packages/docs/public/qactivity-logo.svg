@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">QActivity logo</title>
+  <desc id="desc">A rounded activity timeline icon with connected event markers and content cards.</desc>
+  <defs>
+    <linearGradient id="outer-bg" x1="114" y1="92" x2="910" y2="932" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8fbf4" />
+      <stop offset="1" stop-color="#dce6d8" />
+    </linearGradient>
+    <linearGradient id="panel-bg" x1="214" y1="164" x2="824" y2="872" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f2235" />
+      <stop offset="1" stop-color="#142d46" />
+    </linearGradient>
+    <linearGradient id="marker-primary" x1="235" y1="232" x2="376" y2="372" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#35d0d9" />
+      <stop offset="1" stop-color="#1976d2" />
+    </linearGradient>
+    <linearGradient id="marker-warm" x1="235" y1="622" x2="376" y2="762" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd166" />
+      <stop offset="1" stop-color="#f97316" />
+    </linearGradient>
+    <linearGradient id="card" x1="420" y1="223" x2="760" y2="796" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="1" stop-color="#edf6fa" />
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#07101d" flood-opacity="0.28" />
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" rx="230" fill="url(#outer-bg)" />
+  <g filter="url(#soft-shadow)">
+    <rect x="168" y="128" width="688" height="768" rx="118" fill="url(#panel-bg)" />
+    <path
+      fill="none"
+      stroke="#73d6e8"
+      stroke-linecap="round"
+      stroke-width="24"
+      d="M306 262v500"
+      opacity="0.5"
+    />
+
+    <circle cx="306" cy="270" r="82" fill="url(#marker-primary)" />
+    <circle cx="306" cy="270" r="43" fill="#ffffff" opacity="0.96" />
+    <path
+      fill="#1976d2"
+      d="M306 229c22.6 0 41 18.4 41 41s-18.4 41-41 41-41-18.4-41-41 18.4-41 41-41zm0 23c-9.9 0-18 8.1-18 18s8.1 18 18 18 18-8.1 18-18-8.1-18-18-18z"
+    />
+
+    <circle cx="306" cy="512" r="66" fill="#8be9ff" />
+    <path
+      fill="#10263b"
+      d="M274 508h65v20h-65zm0-38h65v20h-65zm0 76h46v20h-46z"
+      opacity="0.92"
+    />
+
+    <circle cx="306" cy="754" r="82" fill="url(#marker-warm)" />
+    <path
+      fill="#ffffff"
+      d="m306 699 17 35 39 6-28 27 7 39-35-18-35 18 7-39-28-27 39-6z"
+    />
+
+    <g fill="url(#card)">
+      <rect x="430" y="216" width="320" height="96" rx="32" />
+      <rect x="430" y="464" width="320" height="96" rx="32" />
+      <rect x="430" y="706" width="320" height="96" rx="32" />
+    </g>
+    <g fill="#0f2235" opacity="0.78">
+      <rect x="472" y="248" width="166" height="15" rx="8" />
+      <rect x="472" y="276" width="220" height="13" rx="7" opacity="0.45" />
+      <rect x="472" y="496" width="122" height="15" rx="8" />
+      <rect x="472" y="524" width="224" height="13" rx="7" opacity="0.45" />
+      <rect x="472" y="738" width="184" height="15" rx="8" />
+      <rect x="472" y="766" width="188" height="13" rx="7" opacity="0.45" />
+    </g>
+  </g>
+</svg>
