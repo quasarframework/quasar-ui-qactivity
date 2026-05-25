@@ -1,9 +1,0 @@
-[build]
-base = "."
-publish = "packages/docs/dist/spa"
-command = "pnpm run build"
-
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200

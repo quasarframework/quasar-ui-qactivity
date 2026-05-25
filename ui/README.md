@@ -1,3 +1,5 @@
+> For Quasar v1/Vue v2 support go to the [v1](https://github.com/quasarframework/quasar-ui-qactivity/tree/v1) branch.
+
 QActivity (@quasar/qactivity)
 ===
 

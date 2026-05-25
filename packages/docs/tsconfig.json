@@ -1,9 +1,0 @@
-{
-  "extends": "./.quasar/tsconfig.json",
-  "compilerOptions": {
-    "exactOptionalPropertyTypes": false
-  },
-  "vueCompilerOptions": {
-    "strictTemplates": false
-  }
-}
