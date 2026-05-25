@@ -26,6 +26,26 @@
       "category": "style",
       "desc": "Size in CSS units, including unit name",
       "examples": ["16px", "1rem"]
+    },
+    "bar-start": {
+      "type": "String",
+      "category": "style",
+      "desc": "Controls the beginning of the timeline bar",
+      "values": ["default", "hidden", "arrow", "round", "rounded"],
+      "examples": ["hidden", "arrow", "round", "rounded"]
+    },
+    "bar-end": {
+      "type": "String",
+      "category": "style",
+      "desc": "Controls the end of the timeline bar",
+      "values": ["default", "hidden", "arrow", "round", "rounded"],
+      "examples": ["hidden", "arrow", "round", "rounded"]
+    },
+    "bar-cap-size": {
+      "type": "String",
+      "category": "style",
+      "desc": "Size in CSS units for hidden bar offsets and arrow caps",
+      "examples": ["8px", "0.5rem"]
     }
   },
   "slots": {

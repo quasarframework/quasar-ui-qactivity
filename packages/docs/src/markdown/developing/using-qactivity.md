@@ -37,6 +37,14 @@ content on the page, or when the marker itself communicates status or category.
 
 <MarkdownExample title="Large Icons" file="LargeIcons" no-github no-edit/>
 
+## Bar Caps
+
+Use `bar-start` and `bar-end` when the default full-height line is too blunt for your layout. You
+can keep the current square end, hide either end, add arrow caps for process-style timelines, or
+choose round and softly rounded ends for thicker activity bars.
+
+<MarkdownExample title="Bar Caps" file="BarCaps" no-github no-edit/>
+
 ## Quote
 
 The icon slot can hold images, avatars, or your own marker content. This example uses an avatar-style

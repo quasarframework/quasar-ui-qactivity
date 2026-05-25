@@ -2,19 +2,77 @@
   position: relative;
   list-style: none;
   padding-inline-start: 0;
+  --qactivity-bar-start-offset: 0;
+  --qactivity-bar-end-offset: 0;
+  --qactivity-bar-start-radius: 0;
+  --qactivity-bar-end-radius: 0;
 }
 
 .q-activity::before {
   position: absolute;
   display: block;
   content: "";
-  height: 100%;
-  top: 0;
-  bottom: 0;
+  top: var(--qactivity-bar-start-offset);
+  bottom: var(--qactivity-bar-end-offset);
   z-index: 1;
   left: var(--qactivity-bar-distance);
   width: var(--qactivity-bar-width);
   background-color: var(--qactivity-bar-color);
+  border-start-start-radius: var(--qactivity-bar-start-radius);
+  border-start-end-radius: var(--qactivity-bar-start-radius);
+  border-end-start-radius: var(--qactivity-bar-end-radius);
+  border-end-end-radius: var(--qactivity-bar-end-radius);
+}
+
+.q-activity--bar-start-hidden,
+.q-activity--bar-start-arrow {
+  --qactivity-bar-start-offset: var(--qactivity-bar-cap-size);
+}
+
+.q-activity--bar-end-hidden,
+.q-activity--bar-end-arrow {
+  --qactivity-bar-end-offset: var(--qactivity-bar-cap-size);
+}
+
+.q-activity--bar-start-round {
+  --qactivity-bar-start-radius: var(--qactivity-bar-width);
+}
+
+.q-activity--bar-end-round {
+  --qactivity-bar-end-radius: var(--qactivity-bar-width);
+}
+
+.q-activity--bar-start-rounded {
+  --qactivity-bar-start-radius: 4px;
+}
+
+.q-activity--bar-end-rounded {
+  --qactivity-bar-end-radius: 4px;
+}
+
+.q-activity__bar-cap {
+  position: absolute;
+  left: var(--qactivity-bar-distance);
+  z-index: 1;
+  width: 0;
+  height: 0;
+  list-style: none;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.q-activity__bar-cap--start {
+  top: 0;
+  border-inline-start: var(--qactivity-bar-cap-size) solid transparent;
+  border-inline-end: var(--qactivity-bar-cap-size) solid transparent;
+  border-block-end: var(--qactivity-bar-cap-size) solid var(--qactivity-bar-color);
+}
+
+.q-activity__bar-cap--end {
+  bottom: 0;
+  border-inline-start: var(--qactivity-bar-cap-size) solid transparent;
+  border-inline-end: var(--qactivity-bar-cap-size) solid transparent;
+  border-block-start: var(--qactivity-bar-cap-size) solid var(--qactivity-bar-color);
 }
 
 .q-activity--normal {
