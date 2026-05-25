@@ -23,7 +23,7 @@
       />
     </div>
 
-    <q-card class="q-pa-sm full-width">
+    <q-card class="q-pa-md full-width">
       <q-activity
         bar-cap-size="10px"
         bar-color="teal"
@@ -38,6 +38,7 @@
           :key="item.time"
           icon-size="34px"
           icon-text-color="white"
+          class="bar-cap-row"
           v-bind="item"
         >
           <div class="full-width row items-center justify-between q-gutter-sm">
@@ -98,3 +99,9 @@ const activityItems = [
 
 const itemClass = computed(() => ($q.dark.isActive ? "bg-grey-8" : "bg-blue-grey-1"));
 </script>
+
+<style lang="scss" scoped>
+.bar-cap-row {
+  min-height: 62px;
+}
+</style>
