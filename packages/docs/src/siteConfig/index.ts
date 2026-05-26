@@ -73,6 +73,14 @@ export interface PrivacyConfig {
   link: string;
 }
 
+export interface CodepenConfig {
+  head?: string;
+  cssExternal?: string[];
+  jsExternal?: string[];
+  jsPreProcessor?: string;
+  jsSetup?: string;
+}
+
 export interface SiteConfig {
   lang: string;
   title: string;
@@ -81,6 +89,8 @@ export interface SiteConfig {
   version: string;
   copyright: CopyrightConfig;
   githubEditRootSrc: string;
+  githubSourceRootSrc?: string;
+  codepen?: CodepenConfig;
   license: LicenseConfig;
   privacy: PrivacyConfig;
   logoConfig: LogoConfig;
@@ -200,6 +210,16 @@ const config: SiteConfig = {
     line2: "",
   },
   githubEditRootSrc: `https://github.com/quasarframework/quasar-ui-qactivity/edit/${repoBranch}/packages/docs/src`,
+  githubSourceRootSrc: `https://github.com/quasarframework/quasar-ui-qactivity/tree/${repoBranch}/packages/docs/src`,
+  codepen: {
+    cssExternal: [
+      `https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@${version}/dist/index.min.css`,
+    ],
+    jsExternal: [
+      `https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@${version}/dist/index.umd.min.js`,
+    ],
+    jsSetup: "app.use(QActivity)",
+  },
   license: {
     label: "MIT License",
     link: `https://github.com/quasarframework/quasar-ui-qactivity/blob/${repoBranch}/LICENSE`,

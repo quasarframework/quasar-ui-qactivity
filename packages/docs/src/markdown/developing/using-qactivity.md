@@ -28,14 +28,14 @@ import QActivityItemApi from '@quasar/quasar-ui-qactivity/dist/api/QActivityItem
 Small icons keep activity lists compact. This works well in side panels, dashboards, or dense
 notification views where the content should remain easy to scan.
 
-<MarkdownExample title="Small Icons" file="SmallIcons" no-github no-edit/>
+<MarkdownExample title="Small Icons" file="SmallIcons" no-edit/>
 
 ## Large Icons
 
 Large markers make each activity feel more deliberate. Use this style when the timeline is the main
 content on the page, or when the marker itself communicates status or category.
 
-<MarkdownExample title="Large Icons" file="LargeIcons" no-github no-edit/>
+<MarkdownExample title="Large Icons" file="LargeIcons" no-edit/>
 
 ## Bar Caps
 
@@ -43,18 +43,18 @@ Use `bar-start` and `bar-end` when the default full-height line is too blunt for
 can keep the current square end, hide either end, add arrow caps for process-style timelines, or
 choose round and softly rounded ends for thicker activity bars.
 
-<MarkdownExample title="Bar Caps" file="BarCaps" no-github no-edit/>
+<MarkdownExample title="Bar Caps" file="BarCaps" no-edit/>
 
 ## Quote
 
 The icon slot can hold images, avatars, or your own marker content. This example uses an avatar-style
 marker to anchor a testimonial quote.
 
-<MarkdownExample title="Quote" file="Quote" no-github no-edit/>
+<MarkdownExample title="Quote" file="Quote" no-edit/>
 
 ## Dark Mode
 
 When `bar-color` is not provided, QActivity automatically adapts the timeline bar for Quasar dark
 mode. Toggle this site between light and dark mode to see the default behavior.
 
-<MarkdownExample title="Dark Mode" file="DarkMode" no-github no-edit/>
+<MarkdownExample title="Dark Mode" file="DarkMode" no-edit/>

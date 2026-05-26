@@ -17,39 +17,172 @@ import { ref, reactive, computed, nextTick } from "vue";
 
 import { slugify } from "@md-plugins/shared";
 
-const cssResources = [
+import siteConfig from "../../siteConfig";
+
+type CodepenParts = {
+  Template?: string;
+  Script?: string;
+  Style?: string;
+  [key: string]: string | undefined;
+};
+
+const defaultCssResources = [
   "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons",
   `https://cdn.jsdelivr.net/npm/quasar@${Quasar.version}/dist/quasar.min.css`,
-].join(";");
+];
 
-const jsResources = [
+const defaultJsResources = [
   "https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js",
   `https://cdn.jsdelivr.net/npm/quasar@${Quasar.version}/dist/quasar.umd.prod.js`,
-].join(";");
+];
 
-const replace = (name) =>
-  function (_, p1) {
-    const parts = p1
-      .split(",")
-      .map((p) => p.trim())
-      .filter((p) => p.length > 0)
-      .reduce((acc, p) => {
-        acc.push(p);
-        return acc;
-      }, []);
+function indent(code: string, spaces = 2) {
+  const padding = " ".repeat(spaces);
+  return code
+    .split("\n")
+    .map((line) => (line.trim().length > 0 ? padding + line : line))
+    .join("\n");
+}
 
-    const text = [];
-    if (parts.length > 0) {
-      text.push("const { " + parts.join(", ") + " } = " + name);
+function getImportNames(content: string, packageName: string) {
+  const names = new Set<string>();
+  const importRe = new RegExp(`import\\s+{([^}'"\\n]+)}\\s+from\\s+['"]${packageName}['"];?`, "g");
+  let match: RegExpExecArray | null;
+
+  while ((match = importRe.exec(content)) !== null) {
+    for (const part of match[1].split(",")) {
+      const name = part.trim().replace(/\s+as\s+/g, ": ");
+
+      if (name.length > 0) {
+        names.add(name);
+      }
     }
-    return text.join("\n");
+  }
+
+  return [...names];
+}
+
+function getGlobalImportLines(content: string) {
+  const vueImports = getImportNames(content, "vue");
+  const quasarImports = getImportNames(content, "quasar");
+
+  return [
+    vueImports.length > 0 ? `const { ${vueImports.join(", ")} } = Vue` : "",
+    quasarImports.length > 0 ? `const { ${quasarImports.join(", ")} } = Quasar` : "",
+  ].filter((line) => line.length > 0);
+}
+
+function stripImports(content: string) {
+  return content
+    .replace(/^\s*import\s+type\s+[\s\S]*?\s+from\s+['"][^'"]+['"];?\s*$/gm, "")
+    .replace(/^\s*import\s+[\s\S]*?\s+from\s+['"][^'"]+['"];?\s*$/gm, "")
+    .replace(/^\s*import\s+['"][^'"]+['"];?\s*$/gm, "")
+    .trim();
+}
+
+function stripCompilerMacros(content: string) {
+  return content
+    .replace(/^\s*defineOptions\(\s*\{[\s\S]*?\}\s*\)\s*;?\s*$/gm, "")
+    .replace(/^\s*defineExpose\(\s*\{[\s\S]*?\}\s*\)\s*;?\s*$/gm, "")
+    .trim();
+}
+
+function getScriptBlock(script: string, setup: boolean) {
+  const re = setup
+    ? /<script\s+setup([^>]*)>([\s\S]*?)<\/script>/
+    : /<script(?!\s+setup)([^>]*)>([\s\S]*?)<\/script>/;
+  const match = re.exec(script);
+
+  return {
+    attrs: match?.[1] ?? "",
+    content: match?.[2] ?? "",
   };
+}
+
+function getSetupReturnNames(content: string) {
+  const names = new Set<string>();
+  const declarationRe = /(?:^|\n)\s*(?:const|let|var)\s+([A-Za-z_$][\w$]*)/g;
+  const functionRe = /(?:^|\n)\s*function\s+([A-Za-z_$][\w$]*)/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = declarationRe.exec(content)) !== null) {
+    names.add(match[1]);
+  }
+
+  while ((match = functionRe.exec(content)) !== null) {
+    names.add(match[1]);
+  }
+
+  return [...names];
+}
+
+function getAppSetup() {
+  return ["app.use(Quasar, { config: {} })", siteConfig.codepen?.jsSetup ?? ""]
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0)
+    .join("\n");
+}
+
+function createSetupScript(script: string) {
+  const { content } = getScriptBlock(script, true);
+  const globalImports = getGlobalImportLines(content);
+  const setupContent = stripCompilerMacros(stripImports(content));
+  const returnNames = getSetupReturnNames(setupContent);
+  const setupBody = [
+    setupContent.length > 0 ? indent(setupContent, 4) : "",
+    returnNames.length > 0 ? `    return { ${returnNames.join(", ")} }` : "",
+  ]
+    .filter((line) => line.length > 0)
+    .join("\n\n");
+
+  return [
+    ...globalImports,
+    `const app = Vue.createApp({
+  setup () {
+${setupBody}
+  }
+})`,
+    getAppSetup(),
+    "app.mount('#q-app')",
+  ].join("\n\n");
+}
+
+function createOptionsScript(script: string) {
+  const { content } = getScriptBlock(script, false);
+  const globalImports = getGlobalImportLines(content);
+  const match = /export\s+default\s+{([\s\S]*)}/.exec(content);
+  const beforeDefault =
+    match === null ? stripImports(content) : stripImports(content.slice(0, match.index));
+  let component = match?.[1]?.trim() ?? "";
+
+  if (component.length > 0) {
+    component = "\n  " + component + "\n";
+  }
+
+  return [
+    ...globalImports,
+    beforeDefault,
+    `const app = Vue.createApp({${component}})`,
+    getAppSetup(),
+    "app.mount('#q-app')",
+  ]
+    .filter((line) => line.length > 0)
+    .join("\n\n");
+}
 
 const props = defineProps({ title: { type: String, required: true } });
 
 const active = ref(false);
 const formRef = ref(null);
-const def = reactive({ parts: {} });
+const def = reactive<{ parts: CodepenParts }>({ parts: {} });
+
+const cssResources = computed(() => {
+  return [...defaultCssResources, ...(siteConfig.codepen?.cssExternal ?? [])].join(";");
+});
+
+const jsResources = computed(() => {
+  return [...defaultJsResources, ...(siteConfig.codepen?.jsExternal ?? [])].join(";");
+});
 
 const css = computed(() => {
   return (def.parts.Style || "").replace(/(<style.*?>|<\/style>)/g, "").trim();
@@ -62,31 +195,20 @@ const cssPreprocessor = computed(() => {
 });
 
 const js = computed(() => {
-  const quasarImports = /import\s+{([^}'\n]+)}\s+from\s+'quasar'/g;
-  const vueImports = /import\s+{([^}'\n]+)}\s+from\s+'vue'/g;
-  const otherImports = /import ([^'\n]*) from ([^\n]*)/g;
-  let component = /export default {([\s\S]*)}/g.exec(def.parts.Script || "");
+  const script = def.parts.Script ?? "";
 
-  component = ((component && component[1]) || "").trim();
-  if (component.length > 0) {
-    component = "\n  " + component + "\n";
-  }
+  return script.includes("<script setup") === true
+    ? createSetupScript(script)
+    : createOptionsScript(script);
+});
 
-  let script = /<script>([\s\S]*)export default {/g.exec(def.parts.Script || "");
-  script = ((script && script[1]) || "")
-    .replace(quasarImports, replace("Quasar"))
-    .replace(vueImports, replace("Vue"))
-    .replace(otherImports, "")
-    .trim();
+const jsPreProcessor = computed(() => {
+  const setupBlock = getScriptBlock(def.parts.Script ?? "", true);
+  const optionsBlock = getScriptBlock(def.parts.Script ?? "", false);
+  const attrs = setupBlock.content.length > 0 ? setupBlock.attrs : optionsBlock.attrs;
 
-  script += script ? "\n\n" : "";
   return (
-    script +
-    `const app = Vue.createApp({${component}})
-
-app.use(Quasar, { config: {} })
-app.mount('#q-app')
-`
+    siteConfig.codepen?.jsPreProcessor ?? (/lang=["']ts["']/.test(attrs) ? "typescript" : "babel")
   );
 });
 
@@ -157,14 +279,14 @@ ${location.origin + location.pathname}#${slugifiedTitle.value}
 <div id="q-app" style="min-height: 100vh;">
 ${html.value}
 </div>`,
-    head: "",
     html_pre_processor: "none",
     css: css.value,
     css_pre_processor: cssPreprocessor.value,
-    css_external: cssResources,
+    css_external: cssResources.value,
     js: js.value,
-    js_pre_processor: "babel",
-    js_external: jsResources,
+    js_pre_processor: jsPreProcessor.value,
+    js_external: jsResources.value,
+    head: siteConfig.codepen?.head ?? "",
     editors: editors.value,
   };
   return JSON.stringify(data);
@@ -175,7 +297,7 @@ ${html.value}
  *
  * @param {string} whichParts - The parts of the application to open.
  */
-function open(whichParts) {
+function open(whichParts: CodepenParts) {
   def.parts = whichParts;
 
   if (active.value) {
