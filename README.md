@@ -31,8 +31,13 @@ quasar ext add @quasar/qactivity@beta
 For direct package usage:
 
 ```bash
-pnpm add @quasar/quasar-ui-qactivity
-bun add @quasar/quasar-ui-qactivity
+pnpm add @quasar/quasar-ui-qactivity@beta
+# or
+bun add @quasar/quasar-ui-qactivity@beta
+# or
+yarn add @quasar/quasar-ui-qactivity@beta
+# or
+npm install @quasar/quasar-ui-qactivity@beta
 ```
 
 ```ts

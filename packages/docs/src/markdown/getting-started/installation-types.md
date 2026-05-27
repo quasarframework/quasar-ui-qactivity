@@ -32,10 +32,13 @@ The QActivity v3 App Extension targets Quasar CLI Vite 3 and requires `@quasar/a
 If you do not install through the App Extension, install the UI package directly:
 
 ```bash
-pnpm add @quasar/quasar-ui-qactivity
-# bun add @quasar/quasar-ui-qactivity
-# yarn add @quasar/quasar-ui-qactivity
-# npm install @quasar/quasar-ui-qactivity
+pnpm add @quasar/quasar-ui-qactivity@beta
+# or
+bun add @quasar/quasar-ui-qactivity@beta
+# or
+yarn add @quasar/quasar-ui-qactivity@beta
+# or
+npm install @quasar/quasar-ui-qactivity@beta
 ```
 
 Then create and register a boot file:
