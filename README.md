@@ -32,6 +32,7 @@ For direct package usage:
 
 ```bash
 pnpm add @quasar/quasar-ui-qactivity
+bun add @quasar/quasar-ui-qactivity
 ```
 
 ```ts

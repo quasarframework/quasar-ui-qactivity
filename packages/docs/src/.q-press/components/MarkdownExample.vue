@@ -96,7 +96,7 @@
 import { computed, inject, markRaw, ref, reactive, onBeforeUnmount, onMounted } from "vue";
 import { openURL } from "quasar";
 
-import { fabGithub, fabCodepen } from "@quasar/extras/fontawesome-v6";
+import { fabGithub, fabCodepen } from "@quasar/extras/fontawesome-v7";
 // import { mdiCompare } from '@quasar/extras/mdi-v7'
 
 import MarkdownCode from "./MarkdownCode.vue";

@@ -6,6 +6,7 @@ QActivity is a Quasar component for building compact activity lists and timeline
 
 ```bash
 pnpm add @quasar/quasar-ui-qactivity
+bun add @quasar/quasar-ui-qactivity
 ```
 
 ```ts

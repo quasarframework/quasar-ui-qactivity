@@ -1,4 +1,4 @@
-import { fabGithub, fabXTwitter } from "@quasar/extras/fontawesome-v6";
+import { fabGithub, fabXTwitter } from "@quasar/extras/fontawesome-v7";
 import { slugify } from "@md-plugins/shared";
 import type { MenuItem } from "@md-plugins/vite-md-plugin";
 import { version } from "../../../ui/package.json";
@@ -73,12 +73,19 @@ export interface PrivacyConfig {
   link: string;
 }
 
+export interface CodepenGlobalPackage {
+  packageName: string;
+  globalName: string;
+}
+
 export interface CodepenConfig {
   head?: string;
   cssExternal?: string[];
   jsExternal?: string[];
   jsPreProcessor?: string;
+  titleSuffix?: string;
   jsSetup?: string;
+  globalPackages?: CodepenGlobalPackage[];
 }
 
 export interface SiteConfig {
@@ -212,13 +219,21 @@ const config: SiteConfig = {
   githubEditRootSrc: `https://github.com/quasarframework/quasar-ui-qactivity/edit/${repoBranch}/packages/docs/src`,
   githubSourceRootSrc: `https://github.com/quasarframework/quasar-ui-qactivity/tree/${repoBranch}/packages/docs/src`,
   codepen: {
+    jsPreProcessor: "typescript",
+    titleSuffix: `QActivity v${version}`,
     cssExternal: [
       `https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@${version}/dist/index.min.css`,
     ],
     jsExternal: [
       `https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qactivity@${version}/dist/index.umd.min.js`,
     ],
-    jsSetup: "app.use(QActivity)",
+    globalPackages: [
+      {
+        packageName: "@quasar/quasar-ui-qactivity",
+        globalName: "(globalThis as any).QActivity",
+      },
+    ],
+    jsSetup: "app.use((globalThis as any).QActivity)",
   },
   license: {
     label: "MIT License",
