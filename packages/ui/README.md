@@ -43,6 +43,13 @@ import "@quasar/quasar-ui-qactivity/dist/index.css";
 
 [Live docs and examples](https://qactivity.netlify.app/)
 
+## Support
+
+If QActivity is useful in your workflow and you want to support ongoing maintenance:
+
+GitHub Sponsors: https://github.com/sponsors/hawkeye64
+PayPal: https://paypal.me/hawkeye64
+
 ## License
 
 MIT (c) Jeff Galbraith <jeff@quasar.dev>
