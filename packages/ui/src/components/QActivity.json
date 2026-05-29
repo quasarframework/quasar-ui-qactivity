@@ -24,7 +24,7 @@
     "bar-distance": {
       "type": "String",
       "category": "style",
-      "desc": "Size in CSS units, including unit name",
+      "desc": "Distance from the inline start edge to the center of the timeline bar",
       "examples": ["16px", "1rem"]
     },
     "bar-start": {

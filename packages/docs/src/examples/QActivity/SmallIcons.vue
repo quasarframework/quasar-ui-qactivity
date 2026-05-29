@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
     <q-card class="q-pa-sm full-width">
-      <q-activity dense bar-color="red" bar-width="1px" bar-distance="15px" :class="itemClass">
+      <q-activity dense bar-color="red" bar-width="1px" bar-distance="16px" :class="itemClass">
         <q-activity-item
           icon="photo"
           icon-color="blue"

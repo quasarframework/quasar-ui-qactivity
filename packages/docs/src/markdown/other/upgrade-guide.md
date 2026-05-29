@@ -57,4 +57,6 @@ modern Quasar and Vite ecosystem.
 ## Bar Caps
 
 The v3 beta also includes timeline bar cap controls (`bar-start`, `bar-end`, and `bar-cap-size`) so
-you can hide, round, soften, or arrow either end of the vertical timeline bar.
+you can hide, round, soften, or arrow either end of the vertical timeline bar. The `bar-distance`
+prop is measured to the center of the bar, which keeps thicker bars and caps aligned with activity
+markers.

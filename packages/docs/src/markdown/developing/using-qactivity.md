@@ -42,6 +42,8 @@ content on the page, or when the marker itself communicates status or category.
 Use `bar-start` and `bar-end` when the default full-height line is too blunt for your layout. You
 can keep the current square end, hide either end, add arrow caps for process-style timelines, or
 choose round and softly rounded ends for thicker activity bars.
+Use `bar-distance` as the centerline for the vertical bar so it stays aligned with the activity
+markers, even when the bar width or cap style changes.
 
 <MarkdownExample title="Bar Caps" file="BarCaps"/>
 

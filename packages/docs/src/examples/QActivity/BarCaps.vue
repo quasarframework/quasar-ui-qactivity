@@ -27,7 +27,7 @@
       <q-activity
         bar-cap-size="10px"
         bar-color="teal"
-        bar-distance="24px"
+        bar-distance="25px"
         :bar-end="barEnd"
         :bar-start="barStart"
         bar-width="6px"

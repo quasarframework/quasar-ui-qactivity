@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md q-gutter-sm">
     <q-card class="q-pa-sm full-width">
-      <q-activity bar-width="4px" bar-distance="32px">
+      <q-activity bar-width="4px" bar-distance="33px">
         <q-activity-item
           icon="photo"
           icon-color="blue"
