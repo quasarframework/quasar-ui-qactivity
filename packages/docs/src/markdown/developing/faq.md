@@ -4,6 +4,28 @@ desc: Frequently asked questions
 keys: developing
 ---
 
+:::details Q. Do I need to import QActivity CSS myself?
+
+The App Extension adds the stylesheet for you.
+
+If you install the UI package directly, import the stylesheet in your boot file or app entry:
+
+```ts
+import "@quasar/quasar-ui-qactivity/dist/index.css";
+```
+
+Quasar CLI projects can also centralize the stylesheet in `quasar.config.ts`:
+
+```ts
+// Note: using ~ tells Quasar the file resides in node_modules
+css: [
+  "app.scss",
+  "~@quasar/quasar-ui-qactivity/dist/index.css",
+],
+```
+
+:::
+
 :::details Q. When should I use QActivity instead of QTimeline?
 
 Use QActivity when you want a compact, lightweight activity list with simple markers and flexible
