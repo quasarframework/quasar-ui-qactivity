@@ -26,6 +26,19 @@ css: [
 
 :::
 
+:::details Q. Can I inspect the component API from the CLI?
+
+Yes. After the App Extension is installed, run:
+
+```bash
+quasar describe QActivity
+quasar describe QActivityItem
+```
+
+The same generated API is shown on the [Using QActivity](/developing/using-qactivity) page.
+
+:::
+
 :::details Q. When should I use QActivity instead of QTimeline?
 
 Use QActivity when you want a compact, lightweight activity list with simple markers and flexible
