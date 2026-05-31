@@ -45,7 +45,7 @@ Use the package entrypoint instead of old source-file imports:
 ```ts [twoslash]
 import { QActivity, QActivityItem } from "@quasar/quasar-ui-qactivity";
 
-QActivityItem
+QActivityItem;
 // ^?
 ```
 
