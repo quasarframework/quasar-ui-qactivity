@@ -489,6 +489,8 @@ const supportItems = [
 }
 
 .preview-panel {
+  position: relative;
+  overflow: visible;
   width: 100%;
   padding: 20px;
   background:
@@ -550,8 +552,22 @@ const supportItems = [
 
 .preview-stack {
   position: relative;
-  min-height: clamp(250px, 30vw, 310px);
-  padding: 10px 14px 6px;
+  isolation: isolate;
+  min-height: clamp(320px, 34vw, 380px);
+  padding: 18px 14px 24px;
+  overflow: visible;
+}
+
+.preview-stack::before {
+  content: "";
+  position: absolute;
+  inset: 28px 18px 40px;
+  z-index: -1;
+  border: 1px solid var(--landing-preview-card-border);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(255, 179, 71, 0.18), transparent 42%), rgba(255, 255, 255, 0.06);
+  transform: rotate(2deg);
 }
 
 .preview-stack--single {
@@ -569,21 +585,31 @@ const supportItems = [
 
 .preview-card :deep(.q-img) {
   display: block;
+  height: 100%;
   width: 100%;
 }
 
+.preview-card :deep(.q-img__image) {
+  object-fit: cover !important;
+  object-position: top left;
+}
+
 .preview-card--primary {
-  top: 10px;
-  left: 10px;
-  width: min(82%, 300px);
-  transform: rotate(-2deg);
+  top: 42px;
+  left: -8px;
+  z-index: 2;
+  width: min(88%, 410px);
+  height: clamp(190px, 20vw, 250px);
+  transform: rotate(-3deg);
 }
 
 .preview-card--secondary {
-  right: 6px;
-  bottom: 4px;
-  width: min(56%, 220px);
-  transform: rotate(4deg);
+  right: -26px;
+  bottom: 36px;
+  z-index: 3;
+  width: min(70%, 320px);
+  height: clamp(150px, 16vw, 205px);
+  transform: rotate(5deg);
 }
 
 .preview-stack--single .preview-card--primary {
@@ -762,13 +788,20 @@ const supportItems = [
   }
 
   .preview-stack {
-    min-height: 260px;
+    min-height: 350px;
     padding: 6px 0 0;
+  }
+
+  .preview-stack::before {
+    display: none;
   }
 
   .preview-card--primary {
     position: relative;
+    left: auto;
+    top: auto;
     width: 100%;
+    height: 190px;
     transform: none;
   }
 
@@ -971,7 +1004,6 @@ body.body--dark .landing-page {
 
 .resource-list__item {
   border-color: var(--landing-resource-item-border);
-  background: var(--landing-resource-item-bg);
 }
 
 .resource-list__title {
