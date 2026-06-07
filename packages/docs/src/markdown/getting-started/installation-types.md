@@ -25,7 +25,7 @@ While QActivity v3 is in beta, install with:
 quasar ext add @quasar/qactivity@beta
 ```
 
-The QActivity v3 App Extension targets Quasar CLI Vite 3 and requires `@quasar/app-vite` >=3.0.0-beta.38. It does not support webpack-based Quasar applications.
+The QActivity v3 App Extension targets Quasar CLI Vite 3 and requires `@quasar/app-vite` >=3.0.0-beta.39. It does not support webpack-based Quasar applications.
 
 ### Manual Boot File
 
