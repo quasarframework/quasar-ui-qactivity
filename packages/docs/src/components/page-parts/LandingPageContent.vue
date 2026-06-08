@@ -418,6 +418,7 @@ const supportItems = [
 }
 
 .hero-button--solid {
+  border-color: rgba(255, 255, 255, 0.36);
   background: #fff8ef;
   color: #132033;
   box-shadow: 0 18px 30px rgba(15, 24, 39, 0.18);
@@ -904,6 +905,7 @@ body.body--dark .landing-page {
 }
 
 .hero-button--solid {
+  border-color: var(--landing-border-strong);
   background: var(--landing-solid-bg);
   color: var(--landing-solid-text);
   box-shadow: var(--landing-solid-shadow);
