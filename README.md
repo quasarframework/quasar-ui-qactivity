@@ -10,9 +10,14 @@
 QActivity is a Quasar component and app extension for building compact activity lists and timelines.
 It is a smaller, focused companion to Quasar's `QTimeline` component.
 
-## Documentation
+# Structure
 
-[Live docs and examples](https://qactivity.netlify.app/)
+This is a pnpm workspace mono-repo. You cannot use npm for building.
+
+- [/ui](packages/ui) - standalone npm package (go here for more information)
+- [/app-extension](packages/app-extension) - Quasar app extension
+- [/docs](packages/docs) - Q-Press documentation site with docs, demos, and examples
+- [live demo](https://qactivity.netlify.app/) - **live Q-Press docs, demos, and examples**
 
 ## Install
 
