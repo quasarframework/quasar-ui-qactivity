@@ -13,12 +13,6 @@ components for Quasar CLI Vite applications.
 quasar ext add @quasar/qactivity
 ```
 
-While v3 is in beta:
-
-```bash
-quasar ext add @quasar/qactivity@beta
-```
-
 ## Requirements
 
 - Quasar v2.

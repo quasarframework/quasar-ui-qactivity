@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-ui-qactivity",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0-rc.0",
   "description": "QActivity - Quasar component",
   "keywords": [
     "activity",
@@ -78,7 +78,7 @@
     "build:app-ext": "tsx build/script.app-ext.ts",
     "typecheck": "pnpm build:api && tsc -p tsconfig.json --noEmit --pretty false && tsc -p test-d/tsconfig.json --noEmit --pretty false",
     "test:types": "pnpm build && pnpm typecheck",
-    "release": "pnpm publish --tag beta",
+    "release": "pnpm publish --tag latest",
     "prepack": "pnpm build"
   },
   "devDependencies": {

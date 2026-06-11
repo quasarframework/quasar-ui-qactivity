@@ -5,15 +5,15 @@ QActivity is a Quasar component for building compact activity lists and timeline
 ## Install
 
 ```bash
-pnpm add @quasar/quasar-ui-qactivity@beta
+pnpm add @quasar/quasar-ui-qactivity
 # or
-bun add @quasar/quasar-ui-qactivity@beta
+bun add @quasar/quasar-ui-qactivity
 # or
-yarn add @quasar/quasar-ui-qactivity@beta
+yarn add @quasar/quasar-ui-qactivity
 # or
-npm install @quasar/quasar-ui-qactivity@beta
+npm install @quasar/quasar-ui-qactivity
 # or, in a Quasar CLI app
-quasar ext add @quasar/qactivity@beta
+quasar ext add @quasar/qactivity
 ```
 
 ```ts

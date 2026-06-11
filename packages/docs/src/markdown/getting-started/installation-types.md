@@ -19,12 +19,6 @@ To add QActivity to your Quasar application, run the following in your Quasar ap
 quasar ext add @quasar/qactivity
 ```
 
-While QActivity v3 is in beta, install with:
-
-```bash
-quasar ext add @quasar/qactivity@beta
-```
-
 The QActivity v3 App Extension targets Quasar CLI Vite 3 and requires `@quasar/app-vite` >=3.0.0-rc.1. It does not support webpack-based Quasar applications.
 
 ### Manual Boot File
@@ -33,13 +27,13 @@ If you do not install through the App Extension, install the UI package directly
 
 ```tabs
 <<| bash pnpm |>>
-pnpm add @quasar/quasar-ui-qactivity@beta
+pnpm add @quasar/quasar-ui-qactivity
 <<| bash bun |>>
-bun add @quasar/quasar-ui-qactivity@beta
+bun add @quasar/quasar-ui-qactivity
 <<| bash yarn |>>
-yarn add @quasar/quasar-ui-qactivity@beta
+yarn add @quasar/quasar-ui-qactivity
 <<| bash npm |>>
-npm install @quasar/quasar-ui-qactivity@beta
+npm install @quasar/quasar-ui-qactivity
 ```
 
 Then create and register a boot file:

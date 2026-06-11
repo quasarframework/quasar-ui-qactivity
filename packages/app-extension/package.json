@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-app-extension-qactivity",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0-rc.0",
   "description": "QActivity is an app extension for Quasar for making an activity list",
   "keywords": [
     "activity",
@@ -38,6 +38,7 @@
   "scripts": {
     "build": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
     "lint": "oxlint src",
+    "release": "pnpm publish --tag latest",
     "prepack": "pnpm build"
   },
   "dependencies": {

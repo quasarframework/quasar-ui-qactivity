@@ -27,22 +27,16 @@ For Quasar CLI projects:
 quasar ext add @quasar/qactivity
 ```
 
-While v3 is in beta:
-
-```bash
-quasar ext add @quasar/qactivity@beta
-```
-
 For direct package usage:
 
 ```bash
-pnpm add @quasar/quasar-ui-qactivity@beta
+pnpm add @quasar/quasar-ui-qactivity
 # or
-bun add @quasar/quasar-ui-qactivity@beta
+bun add @quasar/quasar-ui-qactivity
 # or
-yarn add @quasar/quasar-ui-qactivity@beta
+yarn add @quasar/quasar-ui-qactivity
 # or
-npm install @quasar/quasar-ui-qactivity@beta
+npm install @quasar/quasar-ui-qactivity
 ```
 
 ```ts

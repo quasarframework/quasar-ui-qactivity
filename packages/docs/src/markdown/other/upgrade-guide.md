@@ -15,27 +15,27 @@ tooling.
 - Vue 3 and Quasar v2.
 - Quasar CLI Vite with `@quasar/app-vite` >=3.0.0-rc.1 for the App Extension.
 - Node.js 22.13 or newer.
-- pnpm 11.4 or newer when working in this repository.
+- pnpm 11.5 or newer when working in this repository.
 
 ## Update Packages
 
 For Quasar App Extension installs:
 
 ```bash
-quasar ext add @quasar/qactivity@beta
+quasar ext add @quasar/qactivity
 ```
 
 For direct UI package installs:
 
 ```tabs
 <<| bash pnpm |>>
-pnpm add @quasar/quasar-ui-qactivity@beta
+pnpm add @quasar/quasar-ui-qactivity
 <<| bash bun |>>
-bun add @quasar/quasar-ui-qactivity@beta
+bun add @quasar/quasar-ui-qactivity
 <<| bash yarn |>>
-yarn add @quasar/quasar-ui-qactivity@beta
+yarn add @quasar/quasar-ui-qactivity
 <<| bash npm |>>
-npm install @quasar/quasar-ui-qactivity@beta
+npm install @quasar/quasar-ui-qactivity
 ```
 
 ## Import Changes
@@ -65,7 +65,7 @@ modern Quasar and Vite ecosystem.
 
 ## Bar Caps
 
-The v3 beta also includes timeline bar cap controls (`bar-start`, `bar-end`, and `bar-cap-size`) so
-you can hide, round, soften, or arrow either end of the vertical timeline bar. The `bar-distance`
-prop is measured to the center of the bar, which keeps thicker bars and caps aligned with activity
-markers.
+The v3 release candidate also includes timeline bar cap controls (`bar-start`, `bar-end`, and
+`bar-cap-size`) so you can hide, round, soften, or arrow either end of the vertical timeline bar. The
+`bar-distance` prop is measured to the center of the bar, which keeps thicker bars and caps aligned
+with activity markers.
