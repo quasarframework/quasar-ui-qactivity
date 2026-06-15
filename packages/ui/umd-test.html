@@ -98,6 +98,12 @@
 
     <script>
       const { ref } = Vue
+      const activityPlugin = globalThis.QActivity
+      const bundleReady =
+        activityPlugin !== void 0 &&
+        typeof activityPlugin.install === 'function' &&
+        activityPlugin.QActivity !== void 0 &&
+        activityPlugin.QActivityItem !== void 0
 
       const app = Vue.createApp({
         setup() {
@@ -124,7 +130,7 @@
           ]
 
           return {
-            version: QActivity.version,
+            version: bundleReady === true ? activityPlugin.version : 'bundle missing',
             dense,
             entries,
           }
@@ -132,7 +138,9 @@
       })
 
       app.use(Quasar)
-      app.use(QActivity)
+      if (bundleReady === true) {
+        app.use(activityPlugin)
+      }
       app.mount("#q-app")
     </script>
   </body>
