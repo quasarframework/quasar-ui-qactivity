@@ -6,6 +6,10 @@
   --qactivity-bar-end-offset: 0;
   --qactivity-bar-start-radius: 0;
   --qactivity-bar-end-radius: 0;
+  --qactivity-item-icon-padding-block-start: 10px;
+  --qactivity-item-icon-padding-inline-end: 15px;
+  --qactivity-item-icon-padding-block-end: 5px;
+  --qactivity-item-icon-padding-inline-start: 8px;
 }
 
 .q-activity::before {
@@ -81,6 +85,10 @@
 
 .q-activity--dense {
   margin: 0;
+  --qactivity-item-icon-padding-block-start: 4px;
+  --qactivity-item-icon-padding-inline-end: 8px;
+  --qactivity-item-icon-padding-block-end: 2px;
+  --qactivity-item-icon-padding-inline-start: 4px;
 }
 
 .q-activity .q-activity-item {
@@ -89,7 +97,10 @@
 
 .q-activity .q-activity-item--icon {
   position: relative;
-  padding: 10px 15px 5px 8px;
+  padding-block-start: var(--qactivity-item-icon-padding-block-start);
+  padding-inline-end: var(--qactivity-item-icon-padding-inline-end);
+  padding-block-end: var(--qactivity-item-icon-padding-block-end);
+  padding-inline-start: var(--qactivity-item-icon-padding-inline-start);
   display: flex;
   justify-content: space-between;
   align-items: center;

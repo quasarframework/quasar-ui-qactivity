@@ -68,7 +68,7 @@
                     icon-color="primary"
                     icon-text-color="white"
                     icon-size="28px"
-                    :class="index < entries.length - 1 ? 'q-pb-md' : ''"
+                    :class="index < entries.length - 1 ? (dense === true ? 'q-pb-sm' : 'q-pb-md') : ''"
                   >
                     <div class="row items-center justify-between q-col-gutter-md">
                       <div class="col">
