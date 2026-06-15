@@ -36,6 +36,51 @@
 
         <q-page-container>
           <q-page padding>
+            <q-card flat bordered class="q-mb-lg" style="max-width: 760px">
+              <q-card-section class="row items-center q-col-gutter-md">
+                <div class="col">
+                  <div class="text-h6">Release timeline smoke test</div>
+                  <div class="text-body2 text-grey-7">
+                    This exercises both QActivity and QActivityItem from the UMD bundle.
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <q-toggle v-model="dense" label="Dense"></q-toggle>
+                </div>
+              </q-card-section>
+
+              <q-separator></q-separator>
+
+              <q-card-section>
+                <q-activity
+                  :dense="dense"
+                  bar-color="primary"
+                  bar-width="3px"
+                  bar-distance="18px"
+                  bar-start="round"
+                  bar-end="round"
+                >
+                  <q-activity-item
+                    v-for="(entry, index) in entries"
+                    :key="entry.time"
+                    :icon="entry.icon"
+                    icon-color="primary"
+                    icon-text-color="white"
+                    icon-size="28px"
+                    :class="index < entries.length - 1 ? 'q-pb-md' : ''"
+                  >
+                    <div class="row items-center justify-between q-col-gutter-md">
+                      <div class="col">
+                        <div class="text-weight-medium">{{ entry.title }}</div>
+                        <div class="text-body2 text-grey-7">{{ entry.description }}</div>
+                      </div>
+                      <div class="col-auto text-caption text-grey-7">{{ entry.time }}</div>
+                    </div>
+                  </q-activity-item>
+                </q-activity>
+              </q-card-section>
+            </q-card>
+
             <ul class="q-mb-lg">
               <li>In /packages/ui, run: "pnpm build"</li>
               <li class="text-red">You need to build & refresh page on each change manually.</li>
@@ -52,17 +97,43 @@
     <script src="dist/index.umd.js"></script>
 
     <script>
+      const { ref } = Vue
+
       const app = Vue.createApp({
         setup() {
+          const dense = ref(false)
+          const entries = [
+            {
+              title: "Package installed",
+              description: "The plugin registered QActivity and QActivityItem from the UMD build.",
+              icon: "extension",
+              time: "09:00",
+            },
+            {
+              title: "Timeline rendered",
+              description: "The vertical bar, markers, and entry content are all visible.",
+              icon: "timeline",
+              time: "09:15",
+            },
+            {
+              title: "Dense mode toggled",
+              description: "Use the switch above to verify the compact layout state.",
+              icon: "tune",
+              time: "09:30",
+            },
+          ]
+
           return {
             version: QActivity.version,
-          };
+            dense,
+            entries,
+          }
         },
-      });
+      })
 
-      app.use(Quasar);
-      app.use(QActivity);
-      app.mount("#q-app");
+      app.use(Quasar)
+      app.use(QActivity)
+      app.mount("#q-app")
     </script>
   </body>
 </html>
