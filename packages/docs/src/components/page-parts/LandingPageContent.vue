@@ -184,86 +184,86 @@
 </template>
 
 <script setup lang="ts">
-import { fabGithub } from "@quasar/extras/fontawesome-v7";
-import { biArrowRightCircle } from "@quasar/extras/bootstrap-icons";
-import siteConfig from "../../siteConfig";
+import { fabGithub } from '@quasar/extras/fontawesome-v7'
+import { biArrowRightCircle } from '@quasar/extras/bootstrap-icons'
+import siteConfig from '../../siteConfig'
 
-const productName = "QActivity";
-const logoSrc = "/app-logo-128x128.png";
-const logoAlt = "QActivity Logo";
-const githubTreeUrl = "https://github.com/quasarframework/quasar-ui-qactivity/tree/v3-beta";
-const githubRepoUrl = "https://github.com/quasarframework/quasar-ui-qactivity";
-const heroEyebrow = "Vue 3 + Quasar 2";
+const productName = 'QActivity'
+const logoSrc = '/app-logo-128x128.png'
+const logoAlt = 'QActivity Logo'
+const githubTreeUrl = 'https://github.com/quasarframework/quasar-ui-qactivity/tree/v3-beta'
+const githubRepoUrl = 'https://github.com/quasarframework/quasar-ui-qactivity'
+const heroEyebrow = 'Vue 3 + Quasar 2'
 const heroLede =
-  "Build activity streams, release notes, audit trails, and story lists with a tiny pair of components instead of a custom timeline stack.";
-const previewKicker = "Activity Timelines";
-const previewTitle = "Ordered event stories without building the timeline chrome yourself";
+  'Build activity streams, release notes, audit trails, and story lists with a tiny pair of components instead of a custom timeline stack.'
+const previewKicker = 'Activity Timelines'
+const previewTitle = 'Ordered event stories without building the timeline chrome yourself'
 const previewBody =
-  "Use QActivity and QActivityEntry to present changelogs, grouped updates, audit logs, and narrative sequences with consistent rhythm and visual hierarchy.";
-const sectionTitle = "Present ordered events without rebuilding timeline layout from scratch";
+  'Use QActivity and QActivityEntry to present changelogs, grouped updates, audit logs, and narrative sequences with consistent rhythm and visual hierarchy.'
+const sectionTitle = 'Present ordered events without rebuilding timeline layout from scratch'
 const sectionText =
-  "QActivity stays intentionally compact: entries, grouping, and slot-friendly structure for feeds, release notes, internal tools, and story-driven UI surfaces.";
+  'QActivity stays intentionally compact: entries, grouping, and slot-friendly structure for feeds, release notes, internal tools, and story-driven UI surfaces.'
 
-const heroPills = ["Timelines", "Grouped Entries", "Release Notes", "Audit Logs", "Slots"];
+const heroPills = ['Timelines', 'Grouped Entries', 'Release Notes', 'Audit Logs', 'Slots']
 
 const previewImages = [
   {
-    src: "/qactivity.png",
-    alt: "QActivity timeline preview",
+    src: '/qactivity.png',
+    alt: 'QActivity timeline preview',
   },
   {
-    src: "/qactivity-social-preview.png",
-    alt: "QActivity alternate presentation preview",
+    src: '/qactivity-social-preview.png',
+    alt: 'QActivity alternate presentation preview',
   },
-];
+]
 
 const featureCards = [
   {
-    icon: "view_timeline",
-    title: "Ordered Event Lists",
-    body: "Render chronological updates, milestones, and histories in a format that reads naturally.",
+    icon: 'view_timeline',
+    title: 'Ordered Event Lists',
+    body: 'Render chronological updates, milestones, and histories in a format that reads naturally.',
   },
   {
-    icon: "segment",
-    title: "Grouped Narratives",
-    body: "Break long streams into sections so releases, audit trails, and stories stay easy to scan.",
+    icon: 'segment',
+    title: 'Grouped Narratives',
+    body: 'Break long streams into sections so releases, audit trails, and stories stay easy to scan.',
   },
   {
-    icon: "density_small",
-    title: "Compact or Spacious",
-    body: "Tune the presentation for quick dashboards, denser logs, or more editorial layouts.",
+    icon: 'density_small',
+    title: 'Compact or Spacious',
+    body: 'Tune the presentation for quick dashboards, denser logs, or more editorial layouts.',
   },
   {
-    icon: "perm_media",
-    title: "Slot-Friendly Content",
-    body: "Mix icons, media, badges, and custom body content into each entry without losing structure.",
+    icon: 'perm_media',
+    title: 'Slot-Friendly Content',
+    body: 'Mix icons, media, badges, and custom body content into each entry without losing structure.',
   },
   {
-    icon: "receipt_long",
-    title: "Release Notes Ready",
-    body: "Fit product updates, changelogs, and rollout notes into a timeline that feels deliberate.",
+    icon: 'receipt_long',
+    title: 'Release Notes Ready',
+    body: 'Fit product updates, changelogs, and rollout notes into a timeline that feels deliberate.',
   },
   {
-    icon: "dashboard_customize",
-    title: "Quasar-Native",
-    body: "Drop the components into docs, admin tools, and app surfaces without styling them from zero.",
+    icon: 'dashboard_customize',
+    title: 'Quasar-Native',
+    body: 'Drop the components into docs, admin tools, and app surfaces without styling them from zero.',
   },
-];
+]
 
 const supportItems = [
   {
-    title: "Introduction First",
-    body: "Use the introduction and examples to choose between simple event lists, grouped activity sections, and richer slot-driven entries.",
+    title: 'Introduction First',
+    body: 'Use the introduction and examples to choose between simple event lists, grouped activity sections, and richer slot-driven entries.',
   },
   {
-    title: "Upgrade Notes",
+    title: 'Upgrade Notes',
     body: "QActivity's current docs follow the Vue 3 + Quasar 2 line, so the upgrade guide should be the first stop when migrating older integrations.",
   },
   {
-    title: "Discussions + Issues",
-    body: "Questions, bugs, and API edge cases are easiest to track in the QActivity repo and GitHub Discussions.",
+    title: 'Discussions + Issues',
+    body: 'Questions, bugs, and API edge cases are easiest to track in the QActivity repo and GitHub Discussions.',
   },
-];
+]
 </script>
 
 <style lang="scss" scoped>
@@ -334,7 +334,7 @@ const supportItems = [
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: #ffe3be;
-  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  font-family: 'Montserrat', 'Poppins', 'Segoe UI', sans-serif;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -353,7 +353,7 @@ const supportItems = [
 
 .hero-title {
   margin: 0;
-  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  font-family: 'Montserrat', 'Poppins', 'Segoe UI', sans-serif;
   font-size: clamp(3.2rem, 8vw, 6rem);
   line-height: 0.95;
   font-weight: 800;
@@ -364,7 +364,7 @@ const supportItems = [
 .hero-subtitle {
   max-width: 620px;
   margin: 0;
-  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  font-family: 'Montserrat', 'Poppins', 'Segoe UI', sans-serif;
   font-size: clamp(1.15rem, 2vw, 1.45rem);
   line-height: 1.45;
   font-weight: 700;
@@ -437,7 +437,7 @@ const supportItems = [
   column-gap: 12px;
   min-width: 0;
   width: 100%;
-  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  font-family: 'Montserrat', 'Poppins', 'Segoe UI', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
 }
@@ -526,7 +526,7 @@ const supportItems = [
 .section-heading__title,
 .feature-card__title,
 .resource-card__title {
-  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  font-family: 'Montserrat', 'Poppins', 'Segoe UI', sans-serif;
   color: #fffdf8;
 }
 
@@ -554,7 +554,7 @@ const supportItems = [
 }
 
 .preview-stack::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 28px 18px 40px;
   z-index: -1;
@@ -652,7 +652,7 @@ const supportItems = [
 }
 
 .feature-card::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0 auto auto 0;
   width: 100%;
@@ -728,7 +728,7 @@ const supportItems = [
 
 .resource-list__title {
   margin-bottom: 6px;
-  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  font-family: 'Montserrat', 'Poppins', 'Segoe UI', sans-serif;
   font-size: 0.96rem;
   font-weight: 700;
   color: #ffe6c7;

@@ -81,7 +81,6 @@
                 </q-activity>
               </q-card-section>
             </q-card>
-
           </q-page>
         </q-page-container>
       </q-layout>
@@ -105,22 +104,22 @@
           const dense = ref(false)
           const entries = [
             {
-              title: "Package installed",
-              description: "The plugin registered QActivity and QActivityItem from the UMD build.",
-              icon: "extension",
-              time: "09:00",
+              title: 'Package installed',
+              description: 'The plugin registered QActivity and QActivityItem from the UMD build.',
+              icon: 'extension',
+              time: '09:00',
             },
             {
-              title: "Timeline rendered",
-              description: "The vertical bar, markers, and entry content are all visible.",
-              icon: "timeline",
-              time: "09:15",
+              title: 'Timeline rendered',
+              description: 'The vertical bar, markers, and entry content are all visible.',
+              icon: 'timeline',
+              time: '09:15',
             },
             {
-              title: "Dense mode toggled",
-              description: "Use the switch above to verify the compact layout state.",
-              icon: "tune",
-              time: "09:30",
+              title: 'Dense mode toggled',
+              description: 'Use the switch above to verify the compact layout state.',
+              icon: 'tune',
+              time: '09:30',
             },
           ]
 
@@ -136,7 +135,7 @@
       if (bundleReady === true) {
         app.use(activityPlugin)
       }
-      app.mount("#q-app")
+      app.mount('#q-app')
     </script>
   </body>
 </html>

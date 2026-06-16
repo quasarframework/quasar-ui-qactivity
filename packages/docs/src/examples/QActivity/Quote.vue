@@ -28,8 +28,8 @@
 </template>
 
 <script setup lang="ts">
-import { QActivity, QActivityItem } from "@quasar/quasar-ui-qactivity";
-import "@quasar/quasar-ui-qactivity/src/index.scss";
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
+import '@quasar/quasar-ui-qactivity/src/index.scss'
 </script>
 
 <style lang="scss" scoped>
@@ -68,7 +68,7 @@ import "@quasar/quasar-ui-qactivity/src/index.scss";
 }
 
 .testimonial-quote blockquote p:first-child::before {
-  content: "\201C";
+  content: '\201C';
   color: #81bedb;
   font-size: 7.5em;
   font-weight: 700;

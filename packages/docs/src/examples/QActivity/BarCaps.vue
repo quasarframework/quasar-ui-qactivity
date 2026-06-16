@@ -56,48 +56,48 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import { useQuasar } from "quasar";
-import { QActivity, QActivityItem } from "@quasar/quasar-ui-qactivity";
-import "@quasar/quasar-ui-qactivity/src/index.scss";
+import { computed, ref } from 'vue'
+import { useQuasar } from 'quasar'
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
+import '@quasar/quasar-ui-qactivity/src/index.scss'
 
-type BarCap = "default" | "hidden" | "arrow" | "round" | "rounded";
+type BarCap = 'default' | 'hidden' | 'arrow' | 'round' | 'rounded'
 
-const $q = useQuasar();
+const $q = useQuasar()
 
 const capOptions = [
-  { label: "Default", value: "default" },
-  { label: "Hidden", value: "hidden" },
-  { label: "Arrow", value: "arrow" },
-  { label: "Round", value: "round" },
-  { label: "Rounded", value: "rounded" },
-];
+  { label: 'Default', value: 'default' },
+  { label: 'Hidden', value: 'hidden' },
+  { label: 'Arrow', value: 'arrow' },
+  { label: 'Round', value: 'round' },
+  { label: 'Rounded', value: 'rounded' },
+]
 
-const barStart = ref<BarCap>("arrow");
-const barEnd = ref<BarCap>("hidden");
+const barStart = ref<BarCap>('arrow')
+const barEnd = ref<BarCap>('hidden')
 
 const activityItems = [
   {
-    icon: "flag",
-    iconColor: "teal",
-    text: "Campaign started",
-    time: "9:00 AM",
+    icon: 'flag',
+    iconColor: 'teal',
+    text: 'Campaign started',
+    time: '9:00 AM',
   },
   {
-    icon: "edit",
-    iconColor: "orange",
-    text: "Creative copy updated",
-    time: "10:30 AM",
+    icon: 'edit',
+    iconColor: 'orange',
+    text: 'Creative copy updated',
+    time: '10:30 AM',
   },
   {
-    icon: "check",
-    iconColor: "positive",
-    text: "Review approved",
-    time: "11:45 AM",
+    icon: 'check',
+    iconColor: 'positive',
+    text: 'Review approved',
+    time: '11:45 AM',
   },
-];
+]
 
-const itemClass = computed(() => ($q.dark.isActive ? "bg-grey-8" : "bg-blue-grey-1"));
+const itemClass = computed(() => ($q.dark.isActive ? 'bg-grey-8' : 'bg-blue-grey-1'))
 </script>
 
 <style lang="scss" scoped>

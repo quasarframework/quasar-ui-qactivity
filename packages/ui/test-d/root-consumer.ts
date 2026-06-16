@@ -1,10 +1,10 @@
-import { QActivity, QActivityItem, version, install } from "@quasar/quasar-ui-qactivity";
-import type { App } from "vue";
+import { QActivity, QActivityItem, version, install } from '@quasar/quasar-ui-qactivity'
+import type { App } from 'vue'
 
-const app = {} as App;
+const app = {} as App
 
-install(app);
+install(app)
 
-void QActivity;
-void QActivityItem;
-void version;
+void QActivity
+void QActivityItem
+void version

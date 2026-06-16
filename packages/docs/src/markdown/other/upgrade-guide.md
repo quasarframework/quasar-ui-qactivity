@@ -43,16 +43,16 @@ npm install @quasar/quasar-ui-qactivity
 Use the package entrypoint instead of old source-file imports:
 
 ```ts [twoslash]
-import { QActivity, QActivityItem } from "@quasar/quasar-ui-qactivity";
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
 
-QActivityItem;
+QActivityItem
 // ^?
 ```
 
 Import the component stylesheet alongside the components:
 
 ```ts
-import "@quasar/quasar-ui-qactivity/dist/index.css";
+import '@quasar/quasar-ui-qactivity/dist/index.css'
 ```
 
 Do not import legacy source paths such as `src/index.sass` or component implementation files. Those

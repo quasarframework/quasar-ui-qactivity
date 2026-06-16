@@ -35,19 +35,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useQuasar } from "quasar";
-import { QActivity, QActivityItem } from "@quasar/quasar-ui-qactivity";
-import "@quasar/quasar-ui-qactivity/src/index.scss";
-import { smallActivityData as activityData } from "./activity-data";
+import { computed } from 'vue'
+import { useQuasar } from 'quasar'
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
+import '@quasar/quasar-ui-qactivity/src/index.scss'
+import { smallActivityData as activityData } from './activity-data'
 
-const $q = useQuasar();
+const $q = useQuasar()
 
 function listClasses(index: number): string {
-  return index % 2 === 0 ? ($q.dark.isActive ? "bg-grey-10" : "bg-blue-grey-11") : "";
+  return index % 2 === 0 ? ($q.dark.isActive ? 'bg-grey-10' : 'bg-blue-grey-11') : ''
 }
 
-const itemClass = computed(() => ($q.dark.isActive ? "bg-grey-8" : "bg-blue-grey-1"));
+const itemClass = computed(() => ($q.dark.isActive ? 'bg-grey-8' : 'bg-blue-grey-1'))
 </script>
 
 <style lang="scss" scoped>

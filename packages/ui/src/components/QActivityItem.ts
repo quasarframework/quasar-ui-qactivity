@@ -1,8 +1,8 @@
-import { computed, defineComponent, h, type CSSProperties } from "vue";
-import { QAvatar } from "quasar";
+import { computed, defineComponent, h, type CSSProperties } from 'vue'
+import { QAvatar } from 'quasar'
 
 export default defineComponent({
-  name: "QActivityItem",
+  name: 'QActivityItem',
 
   props: {
     icon: String,
@@ -15,26 +15,26 @@ export default defineComponent({
     iconImage: String,
     iconDistance: {
       type: String,
-      default: "0",
+      default: '0',
     },
   },
 
   setup(props, { slots }) {
     const iconStyle = computed<CSSProperties>(() => ({
       left: props.iconDistance,
-    }));
+    }))
 
     return () =>
       h(
-        "li",
+        'li',
         {
-          class: ["q-activity-item", "row"],
+          class: ['q-activity-item', 'row'],
         },
         [
           h(
-            "div",
+            'div',
             {
-              class: ["q-activity-item--icon", "vertical-middle"],
+              class: ['q-activity-item--icon', 'vertical-middle'],
               style: iconStyle.value,
             },
             [
@@ -52,7 +52,7 @@ export default defineComponent({
                 () =>
                   props.iconImage !== void 0
                     ? [
-                        h("img", {
+                        h('img', {
                           src: props.iconImage,
                         }),
                       ]
@@ -62,13 +62,13 @@ export default defineComponent({
             ],
           ),
           h(
-            "div",
+            'div',
             {
-              class: "col q-activity-item--content",
+              class: 'col q-activity-item--content',
             },
             slots.default?.(),
           ),
         ],
-      );
+      )
   },
-});
+})

@@ -17,21 +17,21 @@ quasar ext add @quasar/qactivity
 ```
 
 ```ts
-import { createApp } from "vue";
-import QActivity from "@quasar/quasar-ui-qactivity";
-import "@quasar/quasar-ui-qactivity/dist/index.css";
+import { createApp } from 'vue'
+import QActivity from '@quasar/quasar-ui-qactivity'
+import '@quasar/quasar-ui-qactivity/dist/index.css'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(QActivity);
-app.mount("#app");
+app.use(QActivity)
+app.mount('#app')
 ```
 
 You can also import the components directly:
 
 ```ts
-import { QActivity, QActivityItem } from "@quasar/quasar-ui-qactivity";
-import "@quasar/quasar-ui-qactivity/dist/index.css";
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
+import '@quasar/quasar-ui-qactivity/dist/index.css'
 ```
 
 ## Components

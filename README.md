@@ -40,14 +40,14 @@ npm install @quasar/quasar-ui-qactivity
 ```
 
 ```ts
-import { createApp } from "vue";
-import QActivity from "@quasar/quasar-ui-qactivity";
-import "@quasar/quasar-ui-qactivity/dist/index.css";
+import { createApp } from 'vue'
+import QActivity from '@quasar/quasar-ui-qactivity'
+import '@quasar/quasar-ui-qactivity/dist/index.css'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(QActivity);
-app.mount("#app");
+app.use(QActivity)
+app.mount('#app')
 ```
 
 ## Components

@@ -34,9 +34,9 @@
 </template>
 
 <script setup lang="ts">
-import { QActivity, QActivityItem } from "@quasar/quasar-ui-qactivity";
-import "@quasar/quasar-ui-qactivity/src/index.scss";
-import { largeActivityData as activityData } from "./activity-data";
+import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
+import '@quasar/quasar-ui-qactivity/src/index.scss'
+import { largeActivityData as activityData } from './activity-data'
 </script>
 
 <style lang="scss" scoped>

@@ -15,7 +15,7 @@
 .q-activity::before {
   position: absolute;
   display: block;
-  content: "";
+  content: '';
   top: var(--qactivity-bar-start-offset);
   bottom: var(--qactivity-bar-end-offset);
   z-index: 1;
