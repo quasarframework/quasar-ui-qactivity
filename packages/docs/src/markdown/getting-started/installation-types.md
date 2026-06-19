@@ -9,6 +9,23 @@ related:
 
 QActivity can be installed as a Quasar App Extension, as a Vue plugin, as a direct component import, or through the UMD bundle.
 
+## Recommended Path
+
+::: steps
+
+## Use the App Extension in Quasar CLI apps
+
+Choose the App Extension when you want Quasar to add the boot file and stylesheet for you.
+
+## Use the Vue plugin for manual registration
+
+Install the UI package directly when your app owns plugin registration or when you are not using the Quasar CLI App Extension flow.
+
+## Import components directly for targeted bundles
+
+Import `QActivity` and `QActivityItem` directly when you only want to register the components used by a specific page or feature.
+:::
+
 ## Quasar CLI
 
 ### App Extension
