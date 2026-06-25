@@ -4,12 +4,16 @@
   padding-inline-start: 0;
   --qactivity-bar-start-offset: 0;
   --qactivity-bar-end-offset: 0;
+  --qactivity-bar-padding-block-start: 0;
+  --qactivity-bar-padding-block-end: 0;
   --qactivity-bar-start-radius: 0;
   --qactivity-bar-end-radius: 0;
   --qactivity-item-icon-padding-block-start: 10px;
   --qactivity-item-icon-padding-inline-end: 15px;
   --qactivity-item-icon-padding-block-end: 5px;
   --qactivity-item-icon-padding-inline-start: 8px;
+  padding-block-start: var(--qactivity-bar-padding-block-start);
+  padding-block-end: var(--qactivity-bar-padding-block-end);
 }
 
 .q-activity::before {
@@ -36,11 +40,23 @@
   --qactivity-bar-start-offset: var(--qactivity-bar-cap-size);
 }
 
+.q-activity--bar-start-arrow,
+.q-activity--bar-start-ball,
+.q-activity--bar-start-square {
+  --qactivity-bar-padding-block-start: var(--qactivity-bar-cap-size);
+}
+
 .q-activity--bar-end-hidden,
 .q-activity--bar-end-arrow,
 .q-activity--bar-end-ball,
 .q-activity--bar-end-square {
   --qactivity-bar-end-offset: var(--qactivity-bar-cap-size);
+}
+
+.q-activity--bar-end-arrow,
+.q-activity--bar-end-ball,
+.q-activity--bar-end-square {
+  --qactivity-bar-padding-block-end: var(--qactivity-bar-cap-size);
 }
 
 .q-activity--bar-start-round {

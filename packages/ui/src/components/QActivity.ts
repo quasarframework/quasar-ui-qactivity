@@ -106,7 +106,7 @@ export default defineComponent({
       validator: validateBarCap,
     },
     /**
-     * Size in CSS units for hidden bar offsets and visible bar caps.
+     * Size in CSS units for hidden bar offsets, visible bar caps, and the space reserved for visible caps.
      *
      * @category style
      * @default '8px'

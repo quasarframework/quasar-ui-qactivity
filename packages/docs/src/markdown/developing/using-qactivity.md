@@ -45,6 +45,7 @@ ball or square caps for stronger endpoints, or choose round and softly rounded e
 activity bars.
 Use `bar-distance` as the centerline for the vertical bar so it stays aligned with the activity
 markers, even when the bar width or cap style changes.
+Use `bar-cap-size` to keep visible caps proportional to the marker size in that layout.
 
 <MarkdownExample title="Bar Caps" file="BarCaps"/>
 

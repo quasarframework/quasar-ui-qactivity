@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md q-gutter-md">
+  <div class="q-pa-md column q-gutter-y-md">
     <div class="row q-col-gutter-md">
       <q-select
         v-model="barStart"
@@ -21,11 +21,15 @@
         outlined
         :options="capOptions"
       />
+      <div class="col-12">
+        <div class="text-caption q-mb-xs">Cap size: {{ barCapSize }}px</div>
+        <q-slider v-model="barCapSize" color="teal" label :max="28" :min="6" :step="1" />
+      </div>
     </div>
 
     <q-card class="q-pa-md full-width">
       <q-activity
-        bar-cap-size="10px"
+        :bar-cap-size="barCapSizeCss"
         bar-color="teal"
         bar-distance="25px"
         :bar-end="barEnd"
@@ -75,8 +79,9 @@ const capOptions = [
   { label: 'Rounded', value: 'rounded' },
 ]
 
-const barStart = ref<BarCap>('arrow')
-const barEnd = ref<BarCap>('hidden')
+const barStart = ref<BarCap>('ball')
+const barEnd = ref<BarCap>('ball')
+const barCapSize = ref(18)
 
 const activityItems = [
   {
@@ -99,6 +104,7 @@ const activityItems = [
   },
 ]
 
+const barCapSizeCss = computed(() => `${barCapSize.value}px`)
 const itemClass = computed(() => ($q.dark.isActive ? 'bg-grey-8' : 'bg-blue-grey-1'))
 </script>
 
