@@ -100,11 +100,15 @@
   padding-block-start: var(--qactivity-item-icon-padding-block-start);
   padding-inline-end: var(--qactivity-item-icon-padding-inline-end);
   padding-block-end: var(--qactivity-item-icon-padding-block-end);
-  padding-inline-start: var(--qactivity-item-icon-padding-inline-start);
+  padding-inline-start: max(
+    var(--qactivity-item-icon-padding-inline-start),
+    calc(var(--qactivity-bar-distance) - var(--qactivity-item-marker-half-size))
+  );
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+  --qactivity-item-marker-half-size: 20px;
 }
 
 .q-activity .q-activity-item--content {

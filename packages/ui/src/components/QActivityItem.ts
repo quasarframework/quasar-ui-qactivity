@@ -1,6 +1,24 @@
 import { computed, defineComponent, h, type CSSProperties, type SlotsType, type VNode } from 'vue'
 import { QAvatar } from 'quasar'
 
+const cssSizeRegex = /^(-?(?:\d+|\d*\.\d+))([a-z%]+)$/i
+
+function getHalfCssSize(value: string | undefined): string {
+  const size = value?.trim()
+
+  if (size === undefined || size.length === 0) {
+    return '20px'
+  }
+
+  const match = size.match(cssSizeRegex)
+
+  if (match !== null) {
+    return `${Number(match[1]) / 2}${match[2]}`
+  }
+
+  return `calc((${size}) / 2)`
+}
+
 export interface QActivityItemSlots {
   /**
    * Anything can go into this slot.
@@ -92,9 +110,13 @@ export default defineComponent({
   slots: Object as SlotsType<QActivityItemSlots>,
 
   setup(props, { slots }) {
-    const iconStyle = computed<CSSProperties>(() => ({
-      left: props.iconDistance,
-    }))
+    const iconStyle = computed<CSSProperties>(
+      () =>
+        ({
+          left: props.iconDistance,
+          '--qactivity-item-marker-half-size': getHalfCssSize(props.iconSize),
+        }) as CSSProperties,
+    )
 
     return () =>
       h(
