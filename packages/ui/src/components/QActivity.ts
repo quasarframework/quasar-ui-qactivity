@@ -9,12 +9,16 @@ import {
 } from 'vue'
 import { useQuasar } from 'quasar'
 
-const barCapValues = ['default', 'hidden', 'arrow', 'round', 'rounded'] as const
+const barCapValues = ['default', 'hidden', 'arrow', 'ball', 'square', 'round', 'rounded'] as const
 
 type BarCap = (typeof barCapValues)[number]
 
 function validateBarCap(value: string): value is BarCap {
   return barCapValues.includes(value as BarCap)
+}
+
+function isVisibleBarCap(value: BarCap): value is 'arrow' | 'ball' | 'square' {
+  return value === 'arrow' || value === 'ball' || value === 'square'
 }
 
 export interface QActivitySlots {
@@ -69,10 +73,12 @@ export default defineComponent({
      * Controls the beginning of the timeline bar.
      *
      * @category style
-     * @values default | hidden | arrow | round | rounded
+     * @values default | hidden | arrow | ball | square | round | rounded
      * @default 'default'
      * @example bar-start="hidden"
      * @example bar-start="arrow"
+     * @example bar-start="ball"
+     * @example bar-start="square"
      * @example bar-start="round"
      * @example bar-start="rounded"
      */
@@ -85,10 +91,12 @@ export default defineComponent({
      * Controls the end of the timeline bar.
      *
      * @category style
-     * @values default | hidden | arrow | round | rounded
+     * @values default | hidden | arrow | ball | square | round | rounded
      * @default 'default'
      * @example bar-end="hidden"
      * @example bar-end="arrow"
+     * @example bar-end="ball"
+     * @example bar-end="square"
      * @example bar-end="round"
      * @example bar-end="rounded"
      */
@@ -98,7 +106,7 @@ export default defineComponent({
       validator: validateBarCap,
     },
     /**
-     * Size in CSS units for hidden bar offsets and arrow caps.
+     * Size in CSS units for hidden bar offsets and visible bar caps.
      *
      * @category style
      * @default '8px'
@@ -136,21 +144,29 @@ export default defineComponent({
     function getBarCaps(): VNode[] {
       const caps: VNode[] = []
 
-      if (props.barStart === 'arrow') {
+      if (isVisibleBarCap(props.barStart)) {
         caps.push(
           h('li', {
             'aria-hidden': 'true',
-            class: ['q-activity__bar-cap', 'q-activity__bar-cap--start'],
+            class: [
+              'q-activity__bar-cap',
+              'q-activity__bar-cap--start',
+              `q-activity__bar-cap--${props.barStart}`,
+            ],
             role: 'presentation',
           }),
         )
       }
 
-      if (props.barEnd === 'arrow') {
+      if (isVisibleBarCap(props.barEnd)) {
         caps.push(
           h('li', {
             'aria-hidden': 'true',
-            class: ['q-activity__bar-cap', 'q-activity__bar-cap--end'],
+            class: [
+              'q-activity__bar-cap',
+              'q-activity__bar-cap--end',
+              `q-activity__bar-cap--${props.barEnd}`,
+            ],
             role: 'presentation',
           }),
         )

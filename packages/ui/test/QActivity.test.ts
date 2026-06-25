@@ -66,4 +66,23 @@ describe('QActivity exports', () => {
     expect(html).toContain('q-activity')
     expect(html).toContain('SSR activity item')
   })
+
+  it('renders visible bar cap variants', async () => {
+    const app = createSSRApp({
+      render: () =>
+        h(QActivity, {
+          barStart: 'ball',
+          barEnd: 'square',
+        }),
+    })
+
+    installSsrQuasarStub(app)
+
+    const html = await renderToString(app)
+
+    expect(html).toContain('q-activity--bar-start-ball')
+    expect(html).toContain('q-activity--bar-end-square')
+    expect(html).toContain('q-activity__bar-cap--ball')
+    expect(html).toContain('q-activity__bar-cap--square')
+  })
 })

@@ -61,7 +61,7 @@ import { useQuasar } from 'quasar'
 import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
 import '@quasar/quasar-ui-qactivity/src/index.scss'
 
-type BarCap = 'default' | 'hidden' | 'arrow' | 'round' | 'rounded'
+type BarCap = 'default' | 'hidden' | 'arrow' | 'ball' | 'square' | 'round' | 'rounded'
 
 const $q = useQuasar()
 
@@ -69,6 +69,8 @@ const capOptions = [
   { label: 'Default', value: 'default' },
   { label: 'Hidden', value: 'hidden' },
   { label: 'Arrow', value: 'arrow' },
+  { label: 'Ball', value: 'ball' },
+  { label: 'Square', value: 'square' },
   { label: 'Round', value: 'round' },
   { label: 'Rounded', value: 'rounded' },
 ]
