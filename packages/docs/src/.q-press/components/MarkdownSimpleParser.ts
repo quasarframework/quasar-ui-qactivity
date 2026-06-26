@@ -94,7 +94,9 @@ export class MarkdownSimpleParser {
       .replace(/`(.*?)`/g, `<code class="${this.classes.inlineCode}">$1</code>`)
       .replace(/#([\d]+)/g, (_match, issueNumber: string) => {
         const href = this.getIssueUrl(issueNumber)
-        return href !== undefined ? this.createExternalLink(href, `#${issueNumber}`) : `#${issueNumber}`
+        return href !== undefined
+          ? this.createExternalLink(href, `#${issueNumber}`)
+          : `#${issueNumber}`
       })
       .replace(/^&gt; ([\S ]+)$/gm, `<div class="${this.classes.blockquote}">$1</div>`)
       .replace(/\[([\S ]*?)\]\((\S*?)\)/g, (_match, label: string, href: string) =>
@@ -104,10 +106,7 @@ export class MarkdownSimpleParser {
     content = this.parseTableBlocks(content)
 
     content = content
-      .replace(
-        /^ {2}[-*] ([^\n]+)$/gm,
-        `<li class="${this.classes.nestedListItem}">$1</li>`,
-      )
+      .replace(/^ {2}[-*] ([^\n]+)$/gm, `<li class="${this.classes.nestedListItem}">$1</li>`)
       .replace(/^[-*] ([^\n]+)$/gm, '<li>$1</li>')
       .replace(/<\/li>[\s\n\r]*<li/g, '</li><li')
       .replace(/(<li(?: class="[^"]*")?>.*?<\/li>)+/g, `<ul class="${this.classes.list}">$&</ul>`)
