@@ -162,7 +162,11 @@ function getTypeScriptDiv(value: string): VNode {
     12,
     'TypeScript',
     void 0,
-    h('pre', { class: 'markdown-api-entry__typescript markdown-token' }, h('code', value)),
+    h(
+      'pre',
+      { class: 'markdown-api-entry__typescript markdown-token' },
+      h('code', value),
+    ),
   )
 }
 
