@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-ui-qactivity",
-  "version": "3.0.0-rc.0",
+  "version": "3.0.0-rc.1",
   "description": "QActivity - Quasar component",
   "keywords": [
     "activity",
@@ -83,7 +83,7 @@
   },
   "devDependencies": {
     "@md-plugins/quasar-app-extension-q-press": "0.1.0-rc.16",
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "@types/rtlcss": "^3.5.4",
     "@types/uglify-js": "^3.17.5",
     "autoprefixer": "^10.5.2",
@@ -100,7 +100,7 @@
     "tsx": "^4.22.4",
     "typescript": "~6.0.3",
     "uglify-js": "^3.19.3",
-    "vue": "^3.5.38"
+    "vue": "^3.5.39"
   },
   "browserslist": [
     "last 4 Chrome versions",

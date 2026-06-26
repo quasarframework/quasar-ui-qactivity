@@ -1,6 +1,6 @@
 {
   "name": "quasar-ui-qactivity-workspace",
-  "version": "3.0.0-rc.0",
+  "version": "3.0.0-rc.1",
   "private": true,
   "description": "QActivity workspace",
   "type": "module",
@@ -30,14 +30,14 @@
     "verify:build": "pnpm build && pnpm api:check && pnpm check:qpress && pnpm typecheck"
   },
   "devDependencies": {
-    "@types/node": "^26.0.0",
+    "@types/node": "^26.0.1",
     "@vitest/coverage-v8": "^4.1.9",
     "npm-check-updates": "^22.2.7",
     "oxfmt": "^0.56.0",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.3",
     "vitest": "^4.1.9",
-    "vue": "^3.5.38"
+    "vue": "^3.5.39"
   },
   "engines": {
     "node": ">=22.13",
