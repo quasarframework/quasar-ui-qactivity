@@ -67,11 +67,12 @@ describe('QActivity exports', () => {
     expect(html).toContain('SSR activity item')
   })
 
-  it('renders visible bar cap variants', async () => {
+  it('renders bar cap and bar style classes', async () => {
     const app = createSSRApp({
       render: () =>
         h(QActivity, {
-          barStart: 'ball',
+          barStyle: 'dotted',
+          barStart: 'round',
           barEnd: 'square',
         }),
     })
@@ -80,9 +81,63 @@ describe('QActivity exports', () => {
 
     const html = await renderToString(app)
 
-    expect(html).toContain('q-activity--bar-start-ball')
+    expect(html).toContain('q-activity--bar-start-round')
     expect(html).toContain('q-activity--bar-end-square')
-    expect(html).toContain('q-activity__bar-cap--ball')
-    expect(html).toContain('q-activity__bar-cap--square')
+    expect(html).toContain('q-activity--bar-style-dotted')
+  })
+
+  it('can force the default bar color into dark mode', async () => {
+    const app = createSSRApp({
+      render: () =>
+        h(QActivity, {
+          dark: true,
+        }),
+    })
+
+    installSsrQuasarStub(app)
+
+    const html = await renderToString(app)
+
+    expect(html).toContain('--qactivity-bar-color:#fff')
+  })
+
+  it('renders item segment and connector controls', async () => {
+    const app = createSSRApp({
+      render: () =>
+        h(
+          QActivity,
+          {
+            barColor: '#67b75a',
+            barWidth: '2px',
+          },
+          {
+            default: () =>
+              h(
+                QActivityItem,
+                {
+                  barTopStyle: 'solid',
+                  barBottomStyle: 'dotted',
+                  connector: true,
+                  connectorStyle: 'dashed',
+                  connectorLength: '64px',
+                  connectorOffset: '14px',
+                },
+                {
+                  default: () => 'Tracked activity item',
+                },
+              ),
+          },
+        ),
+    })
+
+    installSsrQuasarStub(app)
+
+    const html = await renderToString(app)
+
+    expect(html).toContain('q-activity-item--bar-top-solid')
+    expect(html).toContain('q-activity-item--bar-bottom-dotted')
+    expect(html).toContain('q-activity-item--connector-dashed')
+    expect(html).toContain('--qactivity-item-connector-length:64px')
+    expect(html).toContain('--qactivity-item-connector-offset:14px')
   })
 })
