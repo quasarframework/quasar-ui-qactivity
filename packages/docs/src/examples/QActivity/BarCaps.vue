@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md column q-gutter-y-md">
+  <div class="q-pa-md q-pt-lg column q-gutter-y-md">
     <div class="row q-col-gutter-md">
       <q-select
         v-model="barStart"
@@ -65,7 +65,7 @@ import { useQuasar } from 'quasar'
 import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
 import '@quasar/quasar-ui-qactivity/src/index.scss'
 
-type BarCap = 'default' | 'hidden' | 'arrow' | 'ball' | 'square' | 'round' | 'rounded'
+type BarCap = 'default' | 'hidden' | 'arrow' | 'square' | 'round' | 'rounded'
 
 const $q = useQuasar()
 
@@ -73,14 +73,13 @@ const capOptions = [
   { label: 'Default', value: 'default' },
   { label: 'Hidden', value: 'hidden' },
   { label: 'Arrow', value: 'arrow' },
-  { label: 'Ball', value: 'ball' },
   { label: 'Square', value: 'square' },
   { label: 'Round', value: 'round' },
-  { label: 'Rounded', value: 'rounded' },
+  { label: 'Rounded square', value: 'rounded' },
 ]
 
-const barStart = ref<BarCap>('ball')
-const barEnd = ref<BarCap>('ball')
+const barStart = ref<BarCap>('round')
+const barEnd = ref<BarCap>('round')
 const barCapSize = ref(18)
 
 const activityItems = [

@@ -197,9 +197,9 @@ const heroEyebrow = 'Vue 3 + Quasar 2'
 const heroLede =
   'Build activity streams, release notes, audit trails, and story lists with a tiny pair of components instead of a custom timeline stack.'
 const previewKicker = 'Activity Timelines'
-const previewTitle = 'Ordered event stories without building the timeline chrome yourself'
+const previewTitle = 'Ordered event stories without rebuilding timeline structure'
 const previewBody =
-  'Use QActivity and QActivityEntry to present changelogs, grouped updates, audit logs, and narrative sequences with consistent rhythm and visual hierarchy.'
+  'Use QActivity and QActivityItem to present changelogs, grouped updates, audit logs, and narrative sequences with consistent rhythm and visual hierarchy.'
 const sectionTitle = 'Present ordered events without rebuilding timeline layout from scratch'
 const sectionText =
   'QActivity stays intentionally compact: entries, grouping, and slot-friendly structure for feeds, release notes, internal tools, and story-driven UI surfaces.'

@@ -1,7 +1,15 @@
 <template>
-  <div class="q-pa-md q-gutter-sm">
-    <q-card class="q-pa-sm full-width">
-      <q-activity bar-width="4px" bar-distance="33px">
+  <div class="q-pa-md q-gutter-y-md">
+    <div class="row items-center">
+      <q-toggle v-model="forceDark" color="orange" label="Force dark surface" />
+    </div>
+
+    <q-card
+      class="q-pa-sm full-width activity-surface"
+      :class="forceDark ? 'bg-grey-10 text-white' : 'bg-white text-dark'"
+      :dark="forceDark"
+    >
+      <q-activity :dark="forceDark" bar-width="4px" bar-distance="33px">
         <q-activity-item
           icon="photo"
           icon-color="blue"
@@ -34,12 +42,21 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { QActivity, QActivityItem } from '@quasar/quasar-ui-qactivity'
 import '@quasar/quasar-ui-qactivity/src/index.scss'
 import { largeActivityData as activityData } from './activity-data'
+
+const forceDark = ref(false)
 </script>
 
 <style lang="scss" scoped>
+.activity-surface {
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
 .activity-row {
   padding-bottom: 5px;
   padding-top: 5px;
