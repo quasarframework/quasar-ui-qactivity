@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width"
+    />
+
+    <link rel="icon" href="data:," />
+    <title>UMD test</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/quasar@2/dist/quasar.prod.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="dist/index.css?ae=qactivity" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="q-app">
+      <q-layout view="lHh Lpr fff">
+        <q-header class="glossy bg-primary">
+          <q-toolbar>
+            <q-toolbar-title> QActivity v{{ version }} </q-toolbar-title>
+
+            <div>Quasar v{{ $q.version }}</div>
+          </q-toolbar>
+        </q-header>
+
+        <q-page-container>
+          <q-page padding>
+            <q-card flat bordered class="q-mb-lg" style="max-width: 760px">
+              <q-card-section class="row items-center q-col-gutter-md">
+                <div class="col">
+                  <div class="text-h6">Release timeline smoke test</div>
+                  <div class="text-body2 text-grey-7">
+                    This exercises both QActivity and QActivityItem from the UMD bundle.
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <q-toggle v-model="dense" label="Dense"></q-toggle>
+                </div>
+              </q-card-section>
+
+              <q-separator></q-separator>
+
+              <q-card-section>
+                <q-activity
+                  :dense="dense"
+                  bar-color="primary"
+                  bar-width="3px"
+                  bar-distance="18px"
+                  bar-start="round"
+                  bar-end="round"
+                >
+                  <q-activity-item
+                    v-for="(entry, index) in entries"
+                    :key="entry.time"
+                    :icon="entry.icon"
+                    icon-color="primary"
+                    icon-text-color="white"
+                    icon-size="28px"
+                    :class="index < entries.length - 1 ? (dense === true ? 'q-pb-sm' : 'q-pb-md') : ''"
+                  >
+                    <div class="row items-center justify-between q-col-gutter-md">
+                      <div class="col">
+                        <div class="text-weight-medium">{{ entry.title }}</div>
+                        <div class="text-body2 text-grey-7">{{ entry.description }}</div>
+                      </div>
+                      <div class="col-auto text-caption text-grey-7">{{ entry.time }}</div>
+                    </div>
+                  </q-activity-item>
+                </q-activity>
+              </q-card-section>
+            </q-card>
+          </q-page>
+        </q-page-container>
+      </q-layout>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@2/dist/quasar.umd.prod.js"></script>
+    <script src="dist/index.umd.js?ae=qactivity"></script>
+
+    <script>
+      const { ref } = Vue
+      const activityPlugin = globalThis.QActivity
+      const bundleReady =
+        activityPlugin !== void 0 &&
+        typeof activityPlugin.install === 'function' &&
+        activityPlugin.QActivity !== void 0 &&
+        activityPlugin.QActivityItem !== void 0
+
+      const app = Vue.createApp({
+        setup() {
+          const dense = ref(false)
+          const entries = [
+            {
+              title: 'Package installed',
+              description: 'The plugin registered QActivity and QActivityItem from the UMD build.',
+              icon: 'extension',
+              time: '09:00',
+            },
+            {
+              title: 'Timeline rendered',
+              description: 'The vertical bar, markers, and entry content are all visible.',
+              icon: 'timeline',
+              time: '09:15',
+            },
+            {
+              title: 'Dense mode toggled',
+              description: 'Use the switch above to verify the compact layout state.',
+              icon: 'tune',
+              time: '09:30',
+            },
+          ]
+
+          return {
+            version: bundleReady === true ? activityPlugin.version : 'bundle missing',
+            dense,
+            entries,
+          }
+        },
+      })
+
+      app.use(Quasar)
+      if (bundleReady === true) {
+        app.use(activityPlugin)
+      }
+      app.mount('#q-app')
+    </script>
+  </body>
+</html>
