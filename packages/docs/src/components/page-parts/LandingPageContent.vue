@@ -191,7 +191,7 @@ import siteConfig from '../../siteConfig'
 const productName = 'QActivity'
 const logoSrc = '/app-logo-128x128.png'
 const logoAlt = 'QActivity Logo'
-const githubTreeUrl = 'https://github.com/quasarframework/quasar-ui-qactivity/tree/v3-beta'
+const githubTreeUrl = 'https://github.com/quasarframework/quasar-ui-qactivity/tree/main'
 const githubRepoUrl = 'https://github.com/quasarframework/quasar-ui-qactivity'
 const heroEyebrow = 'Vue 3 + Quasar 2'
 const heroLede =

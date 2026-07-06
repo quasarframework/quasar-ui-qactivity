@@ -8,7 +8,7 @@
 
 This package contains the Q-Press documentation site for QActivity. It owns the public documentation source, live demos, example-viewer content, generated API pages, and static-search output for activity timelines, status feeds, and stream-style activity components.
 
-The docs app is a Quasar CLI Vite project inside the monorepo. Production docs should be built from the repository root so the UI package, app extension, generated API data, Q-Press route checks, and static output all describe the same release candidate.
+The docs app is a Quasar CLI Vite project inside the monorepo. Production docs should be built from the repository root so the UI package, app extension, generated API data, Q-Press route checks, and static output all describe the same release.
 
 ## Development
 

@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "3.0.0-rc.1",
+  "version": "3.0.0",
   "private": true,
   "description": "QActivity Docs",
   "author": "Jeff Galbraith <jeff@quasar.dev>",
@@ -19,7 +19,7 @@
     "build:ssg": "quasar prepare && quasar build && qpress ssg",
     "build:ssg:renderer": "quasar prepare && quasar build -m ssr",
     "prerender:ssg": "qpress ssg",
-    "preview:ssg": "quasar serve dist/spa --history",
+    "preview:ssg": "vite preview --outDir dist/spa",
     "check:qpress": "qpress check"
   },
   "dependencies": {

@@ -65,7 +65,7 @@ modern Quasar and Vite ecosystem.
 
 ## Bar Caps
 
-The v3 release candidate also includes timeline bar cap controls (`bar-start`, `bar-end`, and
+The v3 release includes timeline bar cap controls (`bar-start`, `bar-end`, and
 `bar-cap-size`) so you can hide either end, add arrow caps, use circular round caps, or use square
 and rounded-square caps. The `bar-distance` prop is measured to the center of the bar, which keeps
 thicker bars and caps aligned with activity markers.

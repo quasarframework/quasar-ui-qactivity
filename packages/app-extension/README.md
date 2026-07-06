@@ -12,7 +12,7 @@
 [![X](https://img.shields.io/badge/follow-@jgalbraith64-1DA1F2?style=for-the-badge&logo=x&logoColor=1DA1F2)](https://twitter.com/jgalbraith64)
 
 The QActivity app extension (`@quasar/quasar-app-extension-qactivity`) installs and registers the
-[QActivity UI](https://github.com/quasarframework/quasar-ui-qactivity/tree/v3-beta/packages/ui)
+[QActivity UI](https://github.com/quasarframework/quasar-ui-qactivity/tree/main/packages/ui)
 components for Quasar CLI Vite applications.
 
 ## Install

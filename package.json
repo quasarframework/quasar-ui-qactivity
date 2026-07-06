@@ -1,6 +1,6 @@
 {
   "name": "quasar-ui-qactivity-workspace",
-  "version": "3.0.0-rc.1",
+  "version": "3.0.0",
   "private": true,
   "description": "QActivity workspace",
   "type": "module",
@@ -15,7 +15,6 @@
     "check:qpress": "pnpm --dir packages/docs exec qpress check --root ../.. --src-dir packages/docs/src",
     "ci:publish": "pnpm --filter @quasar/quasar-ui-qactivity publish --access public --publish-branch main && pnpm --filter @quasar/quasar-app-extension-qactivity publish --access public --publish-branch main",
     "ci:publish:latest": "pnpm --filter @quasar/quasar-ui-qactivity publish --access public --publish-branch main --tag latest && pnpm --filter @quasar/quasar-app-extension-qactivity publish --access public --publish-branch main --tag latest",
-    "ci:publish:beta": "pnpm --filter @quasar/quasar-ui-qactivity publish --access public --publish-branch v3-beta --tag beta --no-git-checks && pnpm --filter @quasar/quasar-app-extension-qactivity publish --access public --publish-branch v3-beta --tag beta --no-git-checks",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "typecheck": "pnpm --filter @quasar/quasar-ui-qactivity typecheck && pnpm --filter docs typecheck",
