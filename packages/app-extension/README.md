@@ -24,7 +24,7 @@ quasar ext add @quasar/qactivity
 ## Requirements
 
 - Quasar v2.
-- `@quasar/app-vite` >=3.0.0-rc.6.
+- `@quasar/app-vite` >=3.0.0.
 
 QActivity v3 does not support webpack-based Quasar apps. If your application is still using
 `@quasar/app-webpack`, migrate the app to Quasar CLI Vite before installing this app extension.

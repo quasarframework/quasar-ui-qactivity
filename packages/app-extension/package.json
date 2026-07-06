@@ -45,12 +45,12 @@
     "@quasar/quasar-ui-qactivity": "workspace:^"
   },
   "devDependencies": {
-    "@quasar/app-vite": "3.0.0-rc.6",
-    "quasar": "^2.21.0",
+    "@quasar/app-vite": "3.0.0",
+    "quasar": "^2.21.1",
     "typescript": "~6.0.3"
   },
   "peerDependencies": {
-    "@quasar/app-vite": ">=3.0.0-rc.6"
+    "@quasar/app-vite": ">=3.0.0"
   },
   "engines": {
     "node": ">=22.13",
