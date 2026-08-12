@@ -362,6 +362,7 @@ export default defineComponent({
                     ? [
                         h('img', {
                           src: props.iconImage,
+                          alt: '',
                         }),
                       ]
                     : [],
