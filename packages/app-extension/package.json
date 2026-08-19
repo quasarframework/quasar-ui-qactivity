@@ -1,6 +1,6 @@
 {
   "name": "@quasar/quasar-app-extension-qactivity",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "QActivity is an app extension for Quasar for making an activity list",
   "keywords": [
     "activity",

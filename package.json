@@ -1,6 +1,6 @@
 {
   "name": "quasar-ui-qactivity-workspace",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "description": "QActivity workspace",
   "type": "module",
