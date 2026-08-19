@@ -11,6 +11,12 @@ export default defineIndexScript((api) => {
   api.compatibleWith('quasar', '^2.0.0')
   api.compatibleWith('@quasar/app-vite', '>=3.0.0')
 
+  api.extendViteConf(() => ({
+    optimizeDeps: {
+      exclude: ['@quasar/quasar-ui-qactivity'],
+    },
+  }))
+
   api.registerDescribeApi('QActivity', '~@quasar/quasar-ui-qactivity/dist/api/QActivity.json')
   api.registerDescribeApi(
     'QActivityItem',
